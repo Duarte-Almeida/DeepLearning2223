@@ -72,6 +72,7 @@ class LogisticRegression(LinearModel):
         y_i: the gold label for that example
         learning_rate (float): keep it at the default value for your plots
         """
+        '''
         Z = 0 
         aux = 0
         x_i_row = np.reshape(x_i, (1, len(x_i)))
@@ -86,13 +87,24 @@ class LogisticRegression(LinearModel):
         
         for i in range(len(self.W)):
             P = np.exp(self.W[i].dot(x_i)) / Z  #scalar
-            aux += P * np.dot(ey_C(y_i), x_i_row)
+            aux += P * np.dot(ey_C(i), x_i_row)
 
         gradient = np.dot(ey_C(y_i), x_i_row) - aux
 
         self.W = self.W + (learning_rate * gradient)
-        
+        '''
+        def ey_C(i): #return one-hot encoded vector
+            ret = np.zeros(self.W.shape[0])
+            ret[i] = 1
+            return ret
+        probs = np.exp(self.W @ x_i)
+        Z = np.sum(probs)
+        probs = probs / Z
 
+        gradient = np.outer(probs - ey_C(y_i), x_i)
+
+        self.W = self.W - learning_rate * gradient
+        
         # Z = np.sum([(np.exp(np.dot(self.W[i], x_i))) for i in range(len(self.W))])
         
         # aux = np.sum([(np.exp(np.dot(self.W[i], x_i))/Z).dot(np.reshape(ey[i], (len(self.W), 1))).dot(x_i_row) for i in range(len(self.W))])
@@ -109,13 +121,22 @@ class MLP(object):
     # in main().
     def __init__(self, n_classes, n_features, hidden_size):
         # Initialize an MLP with a single hidden layer.
-        raise NotImplementedError
+        self.W1 = np.random.normal(loc = 0.1, scale = 0.1, size = (hidden_size, n_features))
+        self.W2 = np.random.normal(loc = 0.1, scale = 0.1, size = (n_classes, hidden_size))
+        self.b1 = np.zeros(hidden_size)
+        self.b2 = np.zeros(n_classes)
 
     def predict(self, X):
         # Compute the forward pass of the network. At prediction time, there is
         # no need to save the values of hidden nodes, whereas this is required
         # at training time.
-        raise NotImplementedError
+        z_1 = self.W1 @ X.T + self.b1.reshape((self.b1.shape[0], 1))
+        h_1 = z_1 * (z_1 > 0)
+
+        z_2 = self.W2 @ h_1 + self.b2.reshape((self.b2.shape[0], 1))
+        probs = np.exp(z_2)
+        f = probs / np.sum(probs)
+        return np.argmax(f, axis = 0)
 
     def evaluate(self, X, y):
         """
@@ -129,7 +150,37 @@ class MLP(object):
         return n_correct / n_possible
 
     def train_epoch(self, X, y, learning_rate=0.001):
-        raise NotImplementedError
+        #np.seterr(all='raise')
+        for i in range(X.shape[0]):
+            x = X[i]
+            z_1 = self.W1 @ x + self.b1
+            h_1 = z_1 * (z_1 > 0)
+
+            z_2 = self.W2 @ h_1 + self.b2
+            z_2 -= np.max(z_2)
+            #probs = np.exp(z_2)
+
+            f = np.exp(z_2) / np.sum(np.exp(z_2))
+
+
+            output = np.zeros(self.W2.shape[0])
+            output[y[i]] = 1
+
+            grad_z_2 = - (output - f)
+            grad_W_2 = np.outer(grad_z_2, h_1)
+            grad_b_2 = grad_z_2
+
+            grad_h_1 = self.W2.T @ grad_z_2
+            grad_z_1 = grad_h_1 * (z_1 > 0)
+            
+            grad_W_1 = np.outer(grad_z_1, x)
+            grad_b_1 = grad_z_1
+
+            self.W2 -= learning_rate * grad_W_2
+            self.b2 -= learning_rate * grad_b_2
+
+            self.W1 -= learning_rate * grad_W_1
+            self.b1 -= learning_rate * grad_b_1
 
 
 def plot(epochs, valid_accs, test_accs):
@@ -178,7 +229,7 @@ def main():
     elif opt.model == 'logistic_regression':
         model = LogisticRegression(n_classes, n_feats)
     else:
-        model = MLP(n_classes, n_feats, opt.hidden_size, opt.layers)
+        model = MLP(n_classes, n_feats, opt.hidden_size)
     epochs = np.arange(1, opt.epochs + 1)
     valid_accs = []
     test_accs = []
