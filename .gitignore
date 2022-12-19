@@ -4,3 +4,4 @@ __pycache__
 *.fls
 *.log
 *.synctex.gz
+*.DS_Store

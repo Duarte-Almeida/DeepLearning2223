@@ -195,16 +195,16 @@
         \end{itemize}
         We then have that:
         \[
-            \vb*{c}^T_{\Theta} \vb*{\phi(x)} = \sum_{i = 1}^{K} \lambda_i (\vb*{w}_i^T\vb*{x})^2 =  \sum_{i = 1}^{D} \lambda_i (\vb*{w}_i^T\vb*{x})^2 = (\vb*{Q}^T \vb*{x})^T \vb*{\Lambda} (\vb*{Q}^T \vb*{x}) = \vb*{x}^T \vb*{Q} \vb*{\Lambda}\vb*{Q}^T \vb*{x} = \vb*{c}^T \vb*{\phi(x)}
+            \vb*{c}^T_{\Theta} \vb*{\phi(x)} = \sum_{i = 1}^{K} \vb*{v}_i (\vb*{w}_i^T\vb*{x})^2 =  \sum_{i = 1}^{D} \lambda_i (\vb*{q}_i^T\vb*{x})^2 = (\vb*{Q}^T \vb*{x})^T \vb*{\Lambda} (\vb*{Q}^T \vb*{x}) = \vb*{x}^T \vb*{Q} \vb*{\Lambda}\vb*{Q}^T \vb*{x} = \vb*{c}^T \vb*{\phi(x)}
         \]
-        and, by Lemma 1, we prova that the previous choice of $\vb*{W}$ and $\vb*{v}$ originate a vector $\vb*{c}_{\Theta}$ such that $\vb*{c}_{\Theta} = \vb*{c}$
+        and, by Lemma 1, we prove that the previous choice of $\vb*{W}$ and $\vb*{v}$ originate a vector $\vb*{c}_{\Theta}$ such that $\vb*{c}_{\Theta} = \vb*{c}$
         \end{proof}
         In fact, we can relax the requirement $K \ge D$ to be $K \ge D - N$, where $N$ is the dimension of the nullspace of $\mathcal{M}(\vb*{c})$. Since $\mathcal{M}(\vb*{c})$ is symmetric and thus diagonalizable, the set of indices $\mathcal{I}$ such that the eigenvectors $\{\vb*{q}_i | i \in \mathcal{I}\}$ are not associated with eigenvalue zero has $D - N$ elements. As such:
         \[
             \vb*{c}^T \vb*{\phi(x)} = \sum_{i = 1}^{D} \lambda_i (\vb*{q}_i^T\vb*{x})^2 = \sum_{i \in \mathcal{I}} \lambda_i (\vb*{q}_i^T\vb*{x})^2
         \]
         and thus we can take $\vb*{W}$ to be equal to the concatenation of the matrix $\vb*{\tilde{Q}}^T$ with a matrix of $N \times K$ zeros (where $\vb*{\tilde{Q}} \in \mathbb{R}^{D \times (D - N)}$ and $\vb*{\tilde{q}}_k = \vb*{q}_{i_k}$, $1 \le k \le D - N$). Following the previously made argument, we would obtain again a vector $\vb*{c}_{\Theta}$ equal to $\vb*{c}$. \\
-        Now, if $K < D - N$, then the nullspace of $\vb*{W}$ has at least dimension $D - (D - N - 1) = N + 1$. Since the rank of $\mathcal{M}(\vb*{c})$ is $D - N$, the dimensions of the row space of $\mathcal{M}(\vb*{c})$ and the nullspace of $\vb*{W}$ sum up to $D + 1$ and thus there is exists some non-null vector $\vb*{x^*}$ that is in the rowspace of $\mathcal{M}(\vb*{c})$ and in the nullspace of $\vb*{W}$. Let $\vb*{y^*} = \vb*{Q}^T \vb*{x^*}$ and choose $\vb*{c}$ to be a vector such that $\mathcal{M}(\vb*{c})$ is positive semidefinite, namely: 
+        Now, if $K < D - N$, then the nullspace of $\vb*{W}$ has at least dimension $D - (D - N - 1) = N + 1$. Since the rank of $\mathcal{M}(\vb*{c})$ is $D - N$, the dimensions of the row space of $\mathcal{M}(\vb*{c})$ and the nullspace of $\vb*{W}$ sum up to $D + 1$ and thus there is exists some non-null vector $\vb*{x^*}$ that is in the rowspace of $\mathcal{M}(\vb*{c})$ and in the nullspace of $\vb*{W}$. Choosing $\vb*{c}$ to be a vector such that $\mathcal{M}(\vb*{c})$ is positive semidefinite, for example: 
         \[
             \mathcal{M}(\vb*{c}) = \text{diag}(\underbrace{1, \dots, 1}_{D - N \text{times}}, \underbrace{0, \dots, 0}_{N \text{times}}) 
         \]
@@ -217,7 +217,7 @@
         \[
             \vb*{c}^T \vb*{\phi(x^*)} = \sum_{i \in \mathcal{I}} \lambda_i (\vb*{q}_i^T\vb*{x^*})^2 > 0
         \]
-        since $\lambda_i > 0$ ($i \in \mathcal{I}$), and $(\vb*{q}_i^T\vb*{x^*})^2 > 0$ for at least one $i$, as $x^*$ belongs to the rowspace of $ \mathcal{M}(\vb*{c})$, and, consequently, it does not belong to its nullspace.\\
+        since $\lambda_i > 0$ ($i \in \mathcal{I}$), and $(\vb*{q}_i^T\vb*{x^*})^2 > 0$ for at least one $i \in \mathcal{I}$, as $x^*$ belongs to the rowspace of $ \mathcal{M}(\vb*{c})$ (which is spanned by $\{\vb*{q}_i | i \in \mathcal{I}\})$.\\
         We have thus constructed an instance where $K < D$ and there is no choice of parameters $\vb*{W}$ and $\vb*{v}$ that make $\vb*{c}^T_{\Theta}$ equal to $\vb*{c}$.
         \question
     \end{questions}
