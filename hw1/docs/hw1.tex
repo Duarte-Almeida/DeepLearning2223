@@ -72,19 +72,19 @@
     \section*{Question 3}
     \begin{questions}
         \question
-        Let $x_i$ denote the $i$-th component of $\vb*{x}$ and let $W_{ij}$ denote the entry in the $i$-th row and $j$-th column in matrix $\vb*{W}$. We then have that:
+        Let $x_i$ denote the $i$-th component of $\vb*{x}$ and let $w_{ij}$ denote the entry in the $i$-th row and $j$-th column in matrix $\vb*{W}$. We then have that:
 
         \begin{align*}
-            h_i(\vb*{x}) &= g\left(\sum_{j = 1}^{D} W_{ij}x_j \right) = \left(\sum_{j = 1}^{D} W_{ij}x_j \right)^2 = \left(\sum_{j = 1}^{D} W_{ij}x_j\right)\left( \sum_{k = 1}^{D} W_{ik}x_k\right) \\
-            &= \sum_{j = 1}^{D} \sum_{k = 1}^{D} W_{ij}x_j  W_{ik}x_k = \sum_{j = 1}^{D} W_{ij}^2x_j^2 +  \sum_{j = 1}^{D} \sum_{k \neq j} W_{ij}W_{ik}x_j x_k \\
-            &= \sum_{j = 1}^{D} W_{ij}^2x_j^2 + \sum_{j = 1}^{D} \sum_{k = 1}^{j - 1}  W_{ij}W_{ik}x_j x_k + 
-            \sum_{j = 1}^{D} \sum_{k = j + 1}^{D}  W_{ij}W_{ik}x_j x_k \\
-            &= \sum_{j = 1}^{D} W_{ij}^2x_j^2 +\sum_{k = 1}^{D} \sum_{j = k + 1}^{D}  W_{ij}W_{ik}x_j x_k + 
-            \sum_{j = 1}^{D} \sum_{k = j + 1}^{D}  W_{ij}W_{ik}x_j x_k \\
-            &= \sum_{j = 1}^{D} W_{ij}^2x_j^2 + \sum_{k = 1}^{D} \sum_{j = k + 1}^{D} W_{ij}W_{ik}(2x_j x_k) \\
+            h_i(\vb*{x}) &= g\left(\sum_{j = 1}^{D} w_{ij}x_j \right) = \left(\sum_{j = 1}^{D} w_{ij}x_j \right)^2 = \left(\sum_{j = 1}^{D} w_{ij}x_j\right)\left( \sum_{k = 1}^{D} w_{ik}x_k\right) \\
+            &= \sum_{j = 1}^{D} \sum_{k = 1}^{D} w_{ij}x_j  w_{ik}x_k = \sum_{j = 1}^{D} w_{ij}^2x_j^2 +  \sum_{j = 1}^{D} \sum_{k \neq j} w_{ij}w_{ik}x_j x_k \\
+            &= \sum_{j = 1}^{D} w_{ij}^2x_j^2 + \sum_{j = 1}^{D} \sum_{k = 1}^{j - 1}  w_{ij}w_{ik}x_j x_k + 
+            \sum_{j = 1}^{D} \sum_{k = j + 1}^{D}  w_{ij}w_{ik}x_j x_k \\
+            &= \sum_{j = 1}^{D} w_{ij}^2x_j^2 +\sum_{k = 1}^{D} \sum_{j = k + 1}^{D}  w_{ij}w_{ik}x_j x_k + 
+            \sum_{j = 1}^{D} \sum_{k = j + 1}^{D}  w_{ij}w_{ik}x_j x_k \\
+            &= \sum_{j = 1}^{D} w_{ij}^2x_j^2 + \sum_{k = 1}^{D} \sum_{j = k + 1}^{D} w_{ij}w_{ik}(2x_j x_k) \\
             &= 
             \begin{bmatrix}
-                W_{i1}^2 & W_{i1}W_{i2} & \dots & W_{i1}W_{iD} & W_{i2}^2 & W_{i2}W_{i3} & \dots & W_{i(D - 1)}^2  & W_{i(D - 1)} W_{iD} &  W_{iD}^2
+                w_{i1}^2 & w_{i1}w_{i2} & \dots & w_{i1}w_{iD} & w_{i2}^2 & w_{i2}w_{i3} & \dots & w_{i(D - 1)}^2  & w_{i(D - 1)} w_{iD} &  w_{iD}^2
             \end{bmatrix}
             \begin{bmatrix}
                 x_1^2 \\ 2x_1 x_2 \\ \dots \\ 2x_1 x_D \\ x_2^2 \\ 2x_2 x_3 \\ \dots \\ x_{D - 1}^2 \\ 2x_{D - 1} x_{D} \\  x_{D}^2
@@ -93,16 +93,16 @@
         As such, $\vb*{h}$ is linear in some feature transformation $\vb*{\phi}$, that is, $\vb*{h}$ can be written as $\vb*{A}_{\Theta}\vb*{\phi}(\vb*{x})$. In particular, we have that such matrix $\vb*{A}_{\Theta}$ can be defined as:
         \begin{equation*}
             \vb*{A}_{\Theta} = 
-            \brows{\vb*{a}_1^T \\ \vb*{a}_2^T \\ \rowsvdots \\ \vb*{a}_D^T}
+            \brows{\vb*{a}_1^T \\ \vb*{a}_2^T \\ \rowsvdots \\ \vb*{a}_K^T}
         \end{equation*}
         where
         \begin{equation*}
             \vb*{a}_i = 
             \begin{bmatrix}
-            W_{i1}^2 & W_{i1}W_{i2} & \dots & W_{i1}W_{iD} & W_{i2}^2 & W_{i2}W_{i3} & \dots & W_{i(D - 1)}^2  & W_{i(D - 1)} W_{iD} &  W_{iD}^2
+            w_{i1}^2 & w_{i1}W_{i2} & \dots & w_{i1}w_{iD} & w_{i2}^2 & w_{i2}w_{i3} & \dots & w_{i(D - 1)}^2  & w_{i(D - 1)} w_{iD} &  w_{iD}^2
             \end{bmatrix}^T
         \end{equation*}
-        and we can define the feature transformation $\vb*{\phi}$ as:
+        and so $\vb*{A}_{\Theta} \in \mathbb{R}^{K \times \frac{D(D + 1)}{2}}$ (since $\sum_{k = 1}^{D} k = \frac{D(D + 1)}{2}$). Furthermore, we can define the feature transformation $\vb*{\phi} : \mathbb{R}^D \mapsto  \mathbb{R}^{\frac{D(D + 1)}{2}}$ as:
         \begin{equation*}
             \vb*{\phi}(\vb*{x}) = (x_1^2, 2x_1 x_2, \dots, 2x_1 x_D, x_2^2, 2x_2 x_3, \dots, x_{D - 1}^2, 2x_{D - 1} x_{D}, x_{D}^2)
         \end{equation*}
@@ -118,36 +118,36 @@
                     = (\vb*{A}_{\Theta}^T \vb*{v})^T \vb*{\phi}(\vb*{x}) 
                     = \vb*{c}_{\Theta}^T \vb*{\phi}(\vb*{x}) 
         \]
-        where we take $\vb*{c}_{\Theta}$ to be equal to $\vb*{A}_{\Theta}^T \vb*{v}$, thereby proving that $\hat{y}$ is also a linear transformation of $\vb*{\phi}(\vb*{x})$. Nevertheless, $\hat{y}$ is \textbf{not} linear in terms of the original parameters $\Theta$. To see this, note that the model is now a linear combination of \textbf{products} of entries of $\vb*{W}$ and $\vb*{v}$ rather than the entries by themselves:
+        where we take $\vb*{c}_{\Theta}$ to be equal to $\vb*{A}_{\Theta}^T \vb*{v}$, thereby proving that $\hat{y}$ is also a linear transformation of $\vb*{\phi}(\vb*{x})$. However, $\hat{y}$ is \textbf{not} linear in terms of the original parameters $\Theta$. To see this, note that the model is now a linear combination of \textbf{products} of entries of $\vb*{W}$ and $\vb*{v}$ rather than being linear in \textbf{each} individual entry:
         \[
-            \hat{y} = \vb*{v}^T \vb*{A}_{\Theta} \vb*{\phi}(\vb*{x}) = \sum_{i = 1}^{D} v_i (w_i^T \vb*{x})^2 
-            = \sum_{i = 1}^{K} \sum_{j = 1}^{D} \sum_{k = 1}^{D} v_i W_{ij} W_{ik} x_i x_k
+            \hat{y} = \vb*{v}^T \vb*{A}_{\Theta} \vb*{\phi}(\vb*{x}) = \sum_{i = 1}^{D} v_i (\vb*{w}_i^T \vb*{x})^2 
+            = \sum_{i = 1}^{K} \sum_{j = 1}^{D} \sum_{k = 1}^{D} v_i w_{ij} w_{ik} x_i x_k
         \]
-        where we define $w_i$ to be the $i$-th row vector of matrix $\vb*{W}$.
+        where we define $\vb*{w}_i$ to be the vector in the $i$-th row of matrix $\vb*{W}$.
 
         \question
         \begin{proof}[\unskip\nopunct]
         To prove the desired result, for $\vb*{c}_{\Theta}$ defined in the previous subquestion and for any $\vb*{c} \in \mathbb{R}^{\frac{D(D + 1)}{2}}$, we make the observation that the inner products $\vb*{c}_{\Theta}^T  \vb*{\phi}(\vb*{x})$ and $\vb*{c}^T  \vb*{\phi}(\vb*{x})$ actually correspond to quadratic forms in $\vb*{x}$:
         \begin{align*}
-            \vb*{c}_{\Theta}^T \vb*{\phi(x)} &= \sum_{i = 1}^K v_i (\vb*{A}_{\Theta} \vb*{\phi}(\vb*{x}))^2_i = 
-            \sum_{i = 1}^K v_i (w_i^T \vb*{x})^2_i \\
+            \vb*{c}_{\Theta}^T \vb*{\phi(x)} &= \vb*{v}^T \vb*{h} = \sum_{i = 1}^K v_i (\vb*{A}_{\Theta} \vb*{\phi}(\vb*{x}))^2_i = 
+            \sum_{i = 1}^K v_i (\vb*{w}_i^T \vb*{x})^2 \\
             &= 
             \begin{bmatrix}
-                w_1^T \vb*{x} & w_2^T \vb*{x} & \dots & w_K^T \vb*{x}
+                \vb*{w}_1^T \vb*{x} & \vb*{w}_2^T \vb*{x} & \dots & \vb*{w}_K^T \vb*{x}
             \end{bmatrix}
             \text{diag}(\vb*{v})
             \begin{bmatrix}
-                w_1^T \vb*{x} \\ w_2^T \vb*{x} \\ \dots \\ w_K^T \vb*{x}
+                \vb*{w}_1^T \vb*{x} \\ \vb*{w}_2^T \vb*{x} \\ \dots \\ \vb*{w}_K^T \vb*{x}
             \end{bmatrix} \\
             &= (\vb*{Wx})^T \text{diag}(\vb*{v}) \vb*{Wx} 
              = \vb*{x}^T \vb*{W}^T \text{diag}(\vb*{v}) \vb*{Wx} 
         \end{align*}
         and 
         \begin{align*}
-            \vb*{c}^T \vb*{\phi(x)} &= \sum_{i = 1}^{\frac{D(D + 1)}{2}} c_i \phi_i(x) = \sum_{i = 1}^{D} c_{(i - 1)D + i}\; x_i^2 + \sum_{i = 1}^{D}\sum_{j = i + 1}^{D} c_{(i - 1)D + j}\;(2 x_i x_j) \\
+            \vb*{c}^T \vb*{\phi(x)} &= \sum_{i = 1}^{\frac{D(D + 1)}{2}} c_i \phi_i(x) = \sum_{i = 1}^{D} c_{(i - 1)D + i - \frac{(i - 1)i}{2}}\; x_i^2 + \sum_{i = 1}^{D}\sum_{j = i + 1}^{D} c_{(i - 1)D + j - \frac{(j - 1)j}{2}}\;(2 x_i x_j) \\
             &= \vb*{x}^T \mathcal{M}(\vb*{c}) \vb*{x}
         \end{align*}
-        where $\mathcal{M}(\vb*{c}) \in \mathbb{R}^{D \times D}$ is a symmetric matrix obatined through $\vb*{c}$ such that:
+        where $\mathcal{M}(\vb*{c}) \in \mathbb{R}^{D \times D}$ is a symmetric matrix obatined from $\vb*{c}$ such that:
         \begin{itemize}
             \item[--] the diagonal and the part above the diagonal of the matrix $\mathcal{M}(\vb*{c})$ is filled row-wise with the elements of vector $\vb*{c}$, i.e.:
             \[
@@ -159,9 +159,9 @@
                     c_D & c_{D - 1} & c_{D - 2} & \dots & c_{\frac{D(D + 1)}{2}} 
                 \end{bmatrix}
             \]
-            \item[--] for $1 \le 1 \le D$ and $j < i$, $(\mathcal{M}(\vb*{c}))_{ij} = (\mathcal{M}(\vb*{c}))_{ji}$
+            \item[--] for $1 \le i \le D$ and $j < i$, $(\mathcal{M}(\vb*{c}))_{ij} = (\mathcal{M}(\vb*{c}))_{ji}$
         \end{itemize}
-        Furthermore, we also recurr to the following lemma:
+        Furthermore, we also recur to the following lemma:
 
         \begin{lemma}
             Two vectors $\vb*{a}, \: \vb*{b} \in \mathbb{R}^{\frac{D(D + 1)}{2}}$ are equal if and only if $\vb*{a}^T \vb*{\phi(x)} = \vb*{b}^T \vb*{\phi(x)}$, for all $\vb*{x} \in \mathbb{R}^D$
@@ -171,17 +171,17 @@
             \[
                 \vb*{a}^T \vb*{\phi(x)} = \vb*{b}^T \vb*{\phi(x)} \Rightarrow \vb*{x}^T \mathcal{M}(\vb*{a}) \vb*{x} = \vb*{x}^T \mathcal{M}(\vb*{b}) \vb*{x}
             \]
-            Since both $\mathcal{M}(\vb*{a})$ and $\mathcal{M}(\vb*{a})$ are symmetric and the associated quadratic forms are twice differentiable continuous, taking the hessian on both sides of the equation yields:
+            Since both $\mathcal{M}(\vb*{a})$ and $\mathcal{M}(\vb*{a})$ are symmetric and the associated quadratic forms are twice continuously differentiable, taking the hessian on both sides of the equation yields:
             \[
                 \mathcal{M}(\vb*{a}) = \mathcal{M}(\vb*{b})
             \]
-            that is, $\mathcal{M}(\vb*{a})$ and $\mathcal{M}(\vb*{b})$ are entrywise equal. In particular, we have that $a_i = b_i$, for $i = 1, \dots, \frac{D(D + 1)}{2}$.
+            that is, $\mathcal{M}(\vb*{a})$ and $\mathcal{M}(\vb*{b})$ are equal entry-wise. In particular, we have that $a_i = b_i$, for $i = 1, \dots, \frac{D(D + 1)}{2}$.
         \end{proof}
-        We are now equipped with the tools needed for the proof. Since $\mathcal{M}(\vb*{c})$ is symmetric, the \textbf{Spectral Decomposition Theorem} tells us that there is a matrix $\vb*{Q}$ orthonormal and $\vb*{\Lambda}$ diagonal such that $\mathcal{M}(\vb*{c}) = \vb*{Q} \vb*{\Lambda}\vb*{Q}^T$. Let $\vb*{q_i}$ denote the eigenvector of $\mathcal{M}(\vb*{c})$ that is present in $i$-th column of $\vb*{Q}$ and let $\lambda_i$ be the corresponding eigenvector (note that $\{\vb*{q}_i\}_{i = 1}^{D}$ forms an orthonormal basis of $\mathbb{R}^{D}$). Then, we can write $\vb*{c}^T \vb*{\phi(x)}$ as:
+        We are now equipped with the tools needed for the proof. Since $\mathcal{M}(\vb*{c})$ is symmetric, the \textbf{Spectral Decomposition Theorem} tells us that there is an orthonormal matrix $\vb*{Q}$ and a diagonal matrix $\vb*{\Lambda}$ such that $\mathcal{M}(\vb*{c}) = \vb*{Q} \vb*{\Lambda}\vb*{Q}^T$. Let $\vb*{q_i}$ denote the eigenvector of $\mathcal{M}(\vb*{c})$ that is present in $i$-th column of $\vb*{Q}$ and let $\lambda_i$ be the corresponding eigenvector (note that $\{\vb*{q}_i\}_{i = 1}^{D}$ forms an orthonormal basis of $\mathbb{R}^{D}$). Then, we can write $\vb*{c}^T \vb*{\phi(x)}$ as:
         \[
             \vb*{c}^T \vb*{\phi(x)} =  \vb*{x}^T \mathcal{M}(\vb*{c}) \vb*{x} = (\vb*{Q}^T \vb*{x})^T \vb*{\Lambda} (\vb*{Q}^T \vb*{x}) = \sum_{i = 1}^{D} \lambda_i (\vb*{q}_i^T\vb*{x})^2
         \]
-        Now, if we assume that $K \ge D$, then we can construct the matrix $\vb*{W}$ and vector $\vb*{v}$ that make $\vb*{c}^T_{\Theta} \vb*{\phi(x)}$ equal to $\vb*{c}^T \vb*{\phi(x)}$ in the following way:
+        Now, if we assume that $K \ge D$, we can find a matrix $\vb*{W}$ and a vector $\vb*{v}$ that make $\vb*{c}^T_{\Theta} \vb*{\phi(x)}$ equal to $\vb*{c}^T \vb*{\phi(x)}$ in the following way:
         \begin{itemize}
             \item[--] we make $\vb*{v}$ to be equal to $(\lambda_1, \lambda_2, \dots, \lambda_D, \underbrace{0, \dots, 0}_{K - D \: \text{times}})$;
             \item[--] we make $\vb*{W}$ to be equal to the vertical concatenation of $\vb*{Q}^T$ with a $(K - D) \times D$ matrix of zeros, i.e.:
@@ -197,14 +197,14 @@
         \[
             \vb*{c}^T_{\Theta} \vb*{\phi(x)} = \sum_{i = 1}^{K} \vb*{v}_i (\vb*{w}_i^T\vb*{x})^2 =  \sum_{i = 1}^{D} \lambda_i (\vb*{q}_i^T\vb*{x})^2 = (\vb*{Q}^T \vb*{x})^T \vb*{\Lambda} (\vb*{Q}^T \vb*{x}) = \vb*{x}^T \vb*{Q} \vb*{\Lambda}\vb*{Q}^T \vb*{x} = \vb*{c}^T \vb*{\phi(x)}
         \]
-        and, by Lemma 1, we prove that the previous choice of $\vb*{W}$ and $\vb*{v}$ originate a vector $\vb*{c}_{\Theta}$ such that $\vb*{c}_{\Theta} = \vb*{c}$
+        and, by Lemma 1, we prove that the previous choice of $\vb*{W}$ and $\vb*{v}$ originate a vector $\vb*{c}_{\Theta}$ such that $\vb*{c}_{\Theta} = \vb*{c}$. Furthermore, we have proven that the sets of classifiers $\mathcal{C}_1 = \{\vb*{c}_{\Theta}^T\phi(x) : \Theta = (\vb*{W}, \vb*{v}) \in \mathbb{R}^{K \times D \times K}\}$ and $\mathcal{C}_2 = \{\vb*{c}^T\phi(x) : \vb*{c} \in \mathbb{R}^{\frac{D(D + 1)}{2}}\}$ are exactly the same, and so the original neural network reduces to a \textbf{linear model} in terms of $\vb*{c}_{\Theta}$.
         \end{proof}
-        In fact, we can relax the requirement $K \ge D$ to be $K \ge D - N$, where $N$ is the dimension of the nullspace of $\mathcal{M}(\vb*{c})$. Since $\mathcal{M}(\vb*{c})$ is symmetric and thus diagonalizable, the set of indices $\mathcal{I}$ such that the eigenvectors $\{\vb*{q}_i | i \in \mathcal{I}\}$ are not associated with eigenvalue zero has $D - N$ elements. As such:
+        In fact, we can relax the requirement $K \ge D$ to be $K \ge D - N$, where $N$ is the dimension of the nullspace of $\mathcal{M}(\vb*{c})$. Since $\mathcal{M}(\vb*{c})$ is symmetric and thus diagonalizable, the set of indices $\mathcal{I}$ such that the eigenvectors $\{\vb*{q}_i : i \in \mathcal{I}\}$ are not associated with eigenvalue zero has $D - N$ elements. As such:
         \[
             \vb*{c}^T \vb*{\phi(x)} = \sum_{i = 1}^{D} \lambda_i (\vb*{q}_i^T\vb*{x})^2 = \sum_{i \in \mathcal{I}} \lambda_i (\vb*{q}_i^T\vb*{x})^2
         \]
-        and thus we can take $\vb*{W}$ to be equal to the concatenation of the matrix $\vb*{\tilde{Q}}^T$ with a matrix of $N \times K$ zeros (where $\vb*{\tilde{Q}} \in \mathbb{R}^{D \times (D - N)}$ and $\vb*{\tilde{q}}_k = \vb*{q}_{i_k}$, $1 \le k \le D - N$). Following the previously made argument, we would obtain again a vector $\vb*{c}_{\Theta}$ equal to $\vb*{c}$. \\
-        Now, if $K < D - N$, then the nullspace of $\vb*{W}$ has at least dimension $D - (D - N - 1) = N + 1$. Since the rank of $\mathcal{M}(\vb*{c})$ is $D - N$, the dimensions of the row space of $\mathcal{M}(\vb*{c})$ and the nullspace of $\vb*{W}$ sum up to $D + 1$ and thus there is exists some non-null vector $\vb*{x^*}$ that is in the rowspace of $\mathcal{M}(\vb*{c})$ and in the nullspace of $\vb*{W}$. Choosing $\vb*{c}$ to be a vector such that $\mathcal{M}(\vb*{c})$ is positive semidefinite, for example: 
+        and thus we can take $\vb*{W}$ to be equal to the concatenation of the matrix $\vb*{\tilde{Q}}^T$ with a matrix of $(K - (D - N)) \times D$ zeros (where $\vb*{\tilde{Q}} \in \mathbb{R}^{D \times (D - N)}$ and each column vector $\vb*{\tilde{q}}_k$ is equal to $\vb*{q}_{i_k}$, where $1 \le k \le D - N$ and $i_k$ is the $k$-th index present in $\mathcal{I}$). Following the previously made argument, we would obtain again a vector $\vb*{c}_{\Theta}$ equal to $\vb*{c}$. \\
+        Now, if $K < D - N$, then the nullspace of $\vb*{W}$ has at least dimension $D - (D - N - 1) = N + 1$. Since the rank of $\mathcal{M}(\vb*{c})$ is $D - N$, the dimensions of the rowspace of $\mathcal{M}(\vb*{c})$ and the nullspace of $\vb*{W}$ sum up to at least $D + 1$ and thus there is some non-null vector $\vb*{x^*}$ that is in the rowspace of $\mathcal{M}(\vb*{c})$ and in the nullspace of $\vb*{W}$. Choosing $\vb*{c}$ to be a vector such that $\mathcal{M}(\vb*{c})$ is positive semidefinite, for example: 
         \[
             \mathcal{M}(\vb*{c}) = \text{diag}(\underbrace{1, \dots, 1}_{D - N \text{times}}, \underbrace{0, \dots, 0}_{N \text{times}}) 
         \]
@@ -217,8 +217,19 @@
         \[
             \vb*{c}^T \vb*{\phi(x^*)} = \sum_{i \in \mathcal{I}} \lambda_i (\vb*{q}_i^T\vb*{x^*})^2 > 0
         \]
-        since $\lambda_i > 0$ ($i \in \mathcal{I}$), and $(\vb*{q}_i^T\vb*{x^*})^2 > 0$ for at least one $i \in \mathcal{I}$, as $x^*$ belongs to the rowspace of $ \mathcal{M}(\vb*{c})$ (which is spanned by $\{\vb*{q}_i | i \in \mathcal{I}\})$.\\
-        We have thus constructed an instance where $K < D$ and there is no choice of parameters $\vb*{W}$ and $\vb*{v}$ that make $\vb*{c}^T_{\Theta}$ equal to $\vb*{c}$.
+        since $\lambda_i > 0$ ( for $i \in \mathcal{I}$), and $(\vb*{q}_i^T\vb*{x^*})^2 > 0$ for at least one $i \in \mathcal{I}$, as $\vb*{x^*}$ belongs to the rowspace of $ \mathcal{M}(\vb*{c})$ (which is spanned by $\{\vb*{q}_i : i \in \mathcal{I}\})$.\\
+        We have thus constructed an instance where $K < D$ and there is no choice of parameters $\vb*{W}$ and $\vb*{v}$ that make $\vb*{c}^T_{\Theta}$ equal to $\vb*{c}$ and so the model cannot be parametrized by $\vb*{c}^T_{\Theta}$ in this case.
+
         \question
+        Given that $\hat{y} = \vb*{c}^T_{\Theta} \vb*{\phi}(\vb*{x})$, we can write the squared loss as:
+        \[
+            L(\vb*{c}^T_{\Theta}; \mathcal{D}) = \sum_{n = 1}^{N} (\hat{y}_n(\vb*{x}_n; \vb*{c}^T_{\Theta}) - y_n) ^2 = \sum_{n = 1}^{N} (\vb*{c}^T_{\Theta} \vb*{\phi}(\vb*{x}) - y_n) ^2 = \|\vb*{X}\vb*{c}_{\Theta} - \vb*{y} \|_2^2
+        \]
+        where $\vb*{y} = (y_1, y_2, \dots, y_n)$. As such, the minimzation of the squared lost corresponds to a linear least squares problem, which in this case has a unique solution $\vb*{c}^*_{\Theta}$ that is found simply by setting the gradient to zero (since $\vb*{X}$ has rank $N$, $\vb*{X}^T\vb*{X}$ has also rank $N$ and so it is invertible):
+        \begin{align*}
+            \nabla_{\vb*{c}_{\Theta}} L(\vb*{c}^T_{\Theta}; \mathcal{D}) = \vb*{0} &\Leftrightarrow \nabla_{\vb*{c}_{\Theta}}(\vb*{X}\vb*{c}_{\Theta}) \nabla_{\vb*{z}}(\|\vb*{z}\|_2^2) \rvert_{\vb*{z} = \vb*{X}\vb*{c}_{\Theta} - \vb*{y}} = \vb*{0} \Leftrightarrow 2\vb*{X}^T(\vb*{X}\vb*{c}_{\Theta} - \vb*{y}) = \vb*{0} \\
+            &\Rightarrow \vb*{c}^*_{\Theta} = (\vb*{X}^T\vb*{X})^{-1}\vb*{X}^T\vb*{y}
+        \end{align*}
+        Usually, loss functions of feedforward neural networks are non-convex in their parameters due to multiple compositions of non-linear activation functions, making the global minimization of said functions especially hard. In spite of that, since the presented architecture only has a single hidden layer with at least as many units as the input layer and uses only quadratic activations, we managed to reduce the underlying model to a \textbf{linear regression} by defining the underlying \textbf{feature transformation} $\vb*{\phi}$ and \textbf{weight vector} $\vb*{c}_{\Theta}$. Hence, the minimization of the loss function admits a closed form solution.
     \end{questions}
 \end{document}
