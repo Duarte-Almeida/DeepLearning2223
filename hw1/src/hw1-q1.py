@@ -20,13 +20,13 @@ def configure_seed(seed):
 
 class LinearModel(object):
     def __init__(self, n_classes, n_features, **kwargs):
-        self.W = np.zeros((n_classes, n_features))
+        self.W = np.zeros((n_classes, n_features)) #10 lines (classes) by 785 columns (features)
 
     def update_weight(self, x_i, y_i, **kwargs):
         raise NotImplementedError
 
     def train_epoch(self, X, y, **kwargs):
-        for x_i, y_i in zip(X, y):
+        for x_i, y_i in zip(X, y):  #x_i is a line of 785 features
             self.update_weight(x_i, y_i, **kwargs)
 
     def predict(self, X):
@@ -53,8 +53,16 @@ class Perceptron(LinearModel):
         y_i (scalar): the gold label for that example
         other arguments are ignored
         """
+    
+        y_hat = self.predict(x_i)
+        
+        if y_hat != y_i:
+
+            self.W[y_i] += x_i
+            self.W[y_hat] -= x_i
+
         # Q1.1a
-        raise NotImplementedError
+        # raise NotImplementedError
 
 
 class LogisticRegression(LinearModel):
@@ -64,8 +72,35 @@ class LogisticRegression(LinearModel):
         y_i: the gold label for that example
         learning_rate (float): keep it at the default value for your plots
         """
+        Z = 0 
+        aux = 0
+        x_i_row = np.reshape(x_i, (1, len(x_i)))
+
+        def ey_C(i): #return one-hot encoded vector (forces it to be a COLUMN)
+            ret = np.zeros((len(self.W), 1))
+            ret[i] = 1
+            return ret
+
+        for i in range(len(self.W)):
+            Z += np.exp(self.W[i].dot(x_i))  
+        
+        for i in range(len(self.W)):
+            P = np.exp(self.W[i].dot(x_i)) / Z  #scalar
+            aux += P * np.dot(ey_C(y_i), x_i_row)
+
+        gradient = np.dot(ey_C(y_i), x_i_row) - aux
+
+        self.W = self.W + (learning_rate * gradient)
+        
+
+        # Z = np.sum([(np.exp(np.dot(self.W[i], x_i))) for i in range(len(self.W))])
+        
+        # aux = np.sum([(np.exp(np.dot(self.W[i], x_i))/Z).dot(np.reshape(ey[i], (len(self.W), 1))).dot(x_i_row) for i in range(len(self.W))])
+
+        # gradient = np.dot(ey_col, np.reshape(x_i_row)) - aux
+
         # Q1.1b
-        raise NotImplementedError
+        #raise NotImplementedError
 
 
 class MLP(object):
