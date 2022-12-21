@@ -65,7 +65,72 @@
         \node[xshift=3.5cm,yshift=-2cm] at (current page.north west) {\includegraphics[scale = 0.35]{logo_ist.jpg}};
     \end{tikzpicture}
 
+    \vspace{-3em}
     \section*{Question 1}
+    \begin{questions}
+        \question
+        \begin{parts}
+
+            \part
+
+            \begin{align*}
+                \text{Final accuracy on validation set: } 0.7236 \\
+                \text{Final accuracy on test set: } 0.6193
+            \end{align*}
+
+            \vspace{-2.5em}
+            \begin{figure}[H]
+                \centering
+                \includegraphics[scale = 0.75]{perceptron.pdf}
+            \end{figure}
+
+            \part 
+
+            \begin{align*}
+                \text{Final accuracy on validation set: } 0.8251 \\
+                \text{Final accuracy on test set: } 0.7028
+            \end{align*}
+
+            \vspace{-2.5em}
+            \begin{figure}[H]
+                \centering
+                \includegraphics[scale = 0.75]{logistic_regression.pdf}
+            \end{figure}
+
+        \end{parts}
+
+        \question
+        \begin{parts}
+
+            \part The use of multilayer perceptrons provide a form of \textbf{representation learing} through the composition of multiclass perceptrons with non-linear activation functions; in particular, they are able to search through some subspace of feature transformations and find one for which the linear separation of data is easier. In practical terms, this layering provides \textbf{hierarchical compositionality}, i.e., each layer encodes a distributed representation that is more abstract the closer it is to the output layer, finding meaningful features at different levels of granularity. \\
+            In the context of character recognition, MLPs are usually able to successively detect features of symbols (i.e., edges and parts), combine them in coarser features and perform an accurate classification at the end. This is usually not the case if we use simple perceptrons, as plain linear combinations of grayscale values are less capable of detecting those distinctive features and be flexible to the variability that the same character may show.\\
+            Nevertheless, an MLP that uses linear activation functions ($g(z) = z$) \textbf{does not display this feature}, it corresponds to a linear classifier, effectively functioning like a simple perceptron:
+            \begin{align*}
+                \vb*{f}(\vb*{x})&= g(\vb*{z}^{(L + 1)}) = \vb*{z}^{(L + 1)} \\
+                &= \vb*{W}^{(L + 1)}\vb*{h}^{(L)} + \vb*{b}^{(L + 1)} \\
+                &= \vb*{W}^{(L + 1)}(\vb*{W}^{(L)}\vb*{h}^{(L - 1)} + \vb*{b}^{(L)}) + \vb*{b}^{(L + 1)} \\
+                & \qquad \qquad \dots\\
+                &= \vb*{W}^{(L + 1)}(\vb*{W}^{(L)}( \dots \; (\vb*{W}^{(1)}\vb*{x} + \vb*{b}^{(1)}))+ \vb*{b}^{(L)}) + \vb*{b}^{(L + 1)} \\
+                &=  \underbrace{\vb*{W}^{(L + 1)} \dots  \vb*{W}^{(1)}}_{\vb*{\widetilde{W}}} \vb*{x} + \underbrace{\vb*{W}^{(L + 1)} \dots \vb*{W}^{(2)} \vb*{b}^{(1)} + \dots + \vb*{W}^{(L + 1)} \vb*{b}^{(L)} + \vb*{b}^{(L + 1)}}_{\vb*{\widetilde{b}}}
+            \end{align*}
+
+            \part
+
+            \begin{align*}
+                \text{Final accuracy on validation set: } 0.9316 \\
+                \text{Final accuracy on test set: } 0.8545
+            \end{align*}
+
+            \vspace{-2.5em}
+            \begin{figure}[H]
+                \centering
+                \includegraphics[scale = 0.75]{mlp.pdf}
+            \end{figure}
+
+        \end{parts}
+
+
+    \end{questions}
 
     \section*{Question 2}
 
@@ -99,7 +164,7 @@
         \begin{equation*}
             \vb*{a}_i = 
             \begin{bmatrix}
-            w_{i1}^2 & w_{i1}W_{i2} & \dots & w_{i1}w_{iD} & w_{i2}^2 & w_{i2}w_{i3} & \dots & w_{i(D - 1)}^2  & w_{i(D - 1)} w_{iD} &  w_{iD}^2
+            w_{i1}^2 & w_{i1}w_{i2} & \dots & w_{i1}w_{iD} & w_{i2}^2 & w_{i2}w_{i3} & \dots & w_{i(D - 1)}^2  & w_{i(D - 1)} w_{iD} &  w_{iD}^2
             \end{bmatrix}^T
         \end{equation*}
         and so $\vb*{A}_{\Theta} \in \mathbb{R}^{K \times \frac{D(D + 1)}{2}}$ (since $\sum_{k = 1}^{D} k = \frac{D(D + 1)}{2}$). Furthermore, we can define the feature transformation $\vb*{\phi} : \mathbb{R}^D \mapsto  \mathbb{R}^{\frac{D(D + 1)}{2}}$ as:
@@ -147,7 +212,7 @@
             \vb*{c}^T \vb*{\phi(x)} &= \sum_{i = 1}^{\frac{D(D + 1)}{2}} c_i \phi_i(x) = \sum_{i = 1}^{D} c_{(i - 1)D + i - \frac{(i - 1)i}{2}}\; x_i^2 + \sum_{i = 1}^{D}\sum_{j = i + 1}^{D} c_{(i - 1)D + j - \frac{(j - 1)j}{2}}\;(2 x_i x_j) \\
             &= \vb*{x}^T \mathcal{M}(\vb*{c}) \vb*{x}
         \end{align*}
-        where $\mathcal{M}(\vb*{c}) \in \mathbb{R}^{D \times D}$ is a symmetric matrix obatined from $\vb*{c}$ such that:
+        where $\mathcal{M}(\vb*{c}) \in \mathbb{R}^{D \times D}$ is a symmetric matrix obtained from $\vb*{c}$ such that:
         \begin{itemize}
             \item[--] the diagonal and the part above the diagonal of the matrix $\mathcal{M}(\vb*{c})$ is filled row-wise with the elements of vector $\vb*{c}$, i.e.:
             \[
@@ -177,7 +242,7 @@
             \]
             that is, $\mathcal{M}(\vb*{a})$ and $\mathcal{M}(\vb*{b})$ are equal entry-wise. In particular, we have that $a_i = b_i$, for $i = 1, \dots, \frac{D(D + 1)}{2}$.
         \end{proof}
-        We are now equipped with the tools needed for the proof. Since $\mathcal{M}(\vb*{c})$ is symmetric, the \textbf{Spectral Decomposition Theorem} tells us that there is an orthonormal matrix $\vb*{Q}$ and a diagonal matrix $\vb*{\Lambda}$ such that $\mathcal{M}(\vb*{c}) = \vb*{Q} \vb*{\Lambda}\vb*{Q}^T$. Let $\vb*{q_i}$ denote the eigenvector of $\mathcal{M}(\vb*{c})$ that is present in $i$-th column of $\vb*{Q}$ and let $\lambda_i$ be the corresponding eigenvector (note that $\{\vb*{q}_i\}_{i = 1}^{D}$ forms an orthonormal basis of $\mathbb{R}^{D}$). Then, we can write $\vb*{c}^T \vb*{\phi(x)}$ as:
+        We are now equipped with the tools needed for the proof. Since $\mathcal{M}(\vb*{c})$ is symmetric, the \textbf{Spectral Decomposition Theorem} tells us that there is an orthonormal matrix $\vb*{Q}$ and a diagonal matrix $\vb*{\Lambda}$ such that $\mathcal{M}(\vb*{c}) = \vb*{Q} \vb*{\Lambda}\vb*{Q}^T$. Let $\vb*{q_i}$ denote the eigenvector of $\mathcal{M}(\vb*{c})$ that is present in $i$-th column of $\vb*{Q}$ and let $\lambda_i$ be the corresponding eigenvalue (note that $\{\vb*{q}_i\}_{i = 1}^{D}$ forms an orthonormal basis of $\mathbb{R}^{D}$). Then, we can write $\vb*{c}^T \vb*{\phi(x)}$ as:
         \[
             \vb*{c}^T \vb*{\phi(x)} =  \vb*{x}^T \mathcal{M}(\vb*{c}) \vb*{x} = (\vb*{Q}^T \vb*{x})^T \vb*{\Lambda} (\vb*{Q}^T \vb*{x}) = \sum_{i = 1}^{D} \lambda_i (\vb*{q}_i^T\vb*{x})^2
         \]
@@ -199,37 +264,42 @@
         \]
         and, by Lemma 1, we prove that the previous choice of $\vb*{W}$ and $\vb*{v}$ originate a vector $\vb*{c}_{\Theta}$ such that $\vb*{c}_{\Theta} = \vb*{c}$. Furthermore, we have proven that the sets of classifiers $\mathcal{C}_1 = \{\vb*{c}_{\Theta}^T\phi(x) : \Theta = (\vb*{W}, \vb*{v}) \in \mathbb{R}^{K \times D \times K}\}$ and $\mathcal{C}_2 = \{\vb*{c}^T\phi(x) : \vb*{c} \in \mathbb{R}^{\frac{D(D + 1)}{2}}\}$ are exactly the same, and so the original neural network reduces to a \textbf{linear model} in terms of $\vb*{c}_{\Theta}$.
         \end{proof}
-        In fact, we can relax the requirement $K \ge D$ to be $K \ge D - N$, where $N$ is the dimension of the nullspace of $\mathcal{M}(\vb*{c})$. Since $\mathcal{M}(\vb*{c})$ is symmetric and thus diagonalizable, the set of indices $\mathcal{I}$ such that the eigenvectors $\{\vb*{q}_i : i \in \mathcal{I}\}$ are not associated with eigenvalue zero has $D - N$ elements. As such:
-        \[
-            \vb*{c}^T \vb*{\phi(x)} = \sum_{i = 1}^{D} \lambda_i (\vb*{q}_i^T\vb*{x})^2 = \sum_{i \in \mathcal{I}} \lambda_i (\vb*{q}_i^T\vb*{x})^2
-        \]
-        and thus we can take $\vb*{W}$ to be equal to the concatenation of the matrix $\vb*{\tilde{Q}}^T$ with a matrix of $(K - (D - N)) \times D$ zeros (where $\vb*{\tilde{Q}} \in \mathbb{R}^{D \times (D - N)}$ and each column vector $\vb*{\tilde{q}}_k$ is equal to $\vb*{q}_{i_k}$, where $1 \le k \le D - N$ and $i_k$ is the $k$-th index present in $\mathcal{I}$). Following the previously made argument, we would obtain again a vector $\vb*{c}_{\Theta}$ equal to $\vb*{c}$. \\
-        Now, if $K < D - N$, then the nullspace of $\vb*{W}$ has at least dimension $D - (D - N - 1) = N + 1$. Since the rank of $\mathcal{M}(\vb*{c})$ is $D - N$, the dimensions of the rowspace of $\mathcal{M}(\vb*{c})$ and the nullspace of $\vb*{W}$ sum up to at least $D + 1$ and thus there is some non-null vector $\vb*{x^*}$ that is in the rowspace of $\mathcal{M}(\vb*{c})$ and in the nullspace of $\vb*{W}$. Choosing $\vb*{c}$ to be a vector such that $\mathcal{M}(\vb*{c})$ is positive semidefinite, for example: 
-        \[
-            \mathcal{M}(\vb*{c}) = \text{diag}(\underbrace{1, \dots, 1}_{D - N \text{times}}, \underbrace{0, \dots, 0}_{N \text{times}}) 
-        \]
-        we have:
+        %In fact, we can relax the requirement $K \ge D$ to be $K \ge D - N$, where $N$ is the dimension of the nullspace of $\mathcal{M}(\vb*{c})$. Since $\mathcal{M}(\vb*{c})$ is symmetric and thus diagonalizable, the set of indices $\mathcal{I}$ such that the eigenvectors $\{\vb*{q}_i : i \in \mathcal{I}\}$ are not associated with eigenvalue zero has $D - N$ elements. As such:
+        %\[
+        %    \vb*{c}^T \vb*{\phi(x)} = \sum_{i = 1}^{D} \lambda_i (\vb*{q}_i^T\vb*{x})^2 = \sum_{i \in \mathcal{I}} \lambda_i (\vb*{q}_i^T\vb*{x})^2
+        %\]
+        %and thus we can take $\vb*{W}$ to be equal to the concatenation of the matrix $\vb*{\tilde{Q}}^T$ with a matrix of $(K - (D - N)) \times D$ zeros (where $\vb*{\tilde{Q}} \in \mathbb{R}^{D \times (D - N)}$ and each column vector $\vb*{\tilde{q}}_k$ is equal to $\vb*{q}_{i_k}$, where $1 \le k \le D - N$ and $i_k$ is the $k$-th index present in $\mathcal{I}$). Following the previously made argument, we would obtain again a vector $\vb*{c}_{\Theta}$ equal to $\vb*{c}$. \\
+        Consider now the case when $K < D$. Then, the nullspace of $\vb*{W}$ has at least dimension $D - K \ge 1$, and thus there is some \textbf{non-null} vector $\vb*{x^*}$ such that $\vb*{Wx^*} = 0$. Now, choose $\vb*{c}$ to be a vector such that $\mathcal{M}(\vb*{c}) = \vb*{I}_{D \times D}$ (i.e., the $D \times D$ identity matrix). We then have:
         \[
             \vb*{c}^T_{\Theta} \vb*{\phi(x^*)}
-            = \vb*{x^*}^T \vb*{W}^T \text{diag}(\vb*{v}) \vb*{Wx^*} = \vb*{0}
+            = \vb*{x^*}^T \vb*{W}^T \text{diag}(\vb*{v}) \vb*{Wx^*} = 0
         \]
         and
         \[
-            \vb*{c}^T \vb*{\phi(x^*)} = \sum_{i \in \mathcal{I}} \lambda_i (\vb*{q}_i^T\vb*{x^*})^2 > 0
+            \vb*{c}^T \vb*{\phi(x^*)} = \vb*{x^*}^T \mathcal{M}(\vb*{c}) \vb*{x^*} = \vb*{x^*}^T \vb*{I}_{D \times D} \vb*{x^*} = \|\vb*{x^*}\|_2^2 > 0 
         \]
-        since $\lambda_i > 0$ ( for $i \in \mathcal{I}$), and $(\vb*{q}_i^T\vb*{x^*})^2 > 0$ for at least one $i \in \mathcal{I}$, as $\vb*{x^*}$ belongs to the rowspace of $ \mathcal{M}(\vb*{c})$ (which is spanned by $\{\vb*{q}_i : i \in \mathcal{I}\})$.\\
-        We have thus constructed an instance where $K < D$ and there is no choice of parameters $\vb*{W}$ and $\vb*{v}$ that make $\vb*{c}^T_{\Theta}$ equal to $\vb*{c}$ and so the model cannot be parametrized by $\vb*{c}^T_{\Theta}$ in this case.
+        Thus, for $K < D$, we have constructed an instance of $\vb*{c}$ for which there exists some $\vb*{x} \in \mathbb{R}^{D}$ such that  $\vb*{c}^T_{\Theta} \vb*{\phi(x)} \neq \vb*{c}^T \vb*{\phi(x)}$. Applying Lemma 1, we conclude that there is no choice of parameters $\vb*{W}$ and $\vb*{v}$ that make $\vb*{c}_{\Theta}$ equal to $\vb*{c}$ and so the model cannot be parametrized by $\vb*{c}_{\Theta}$ in this case.
 
         \question
         Given that $\hat{y} = \vb*{c}^T_{\Theta} \vb*{\phi}(\vb*{x})$, we can write the squared loss as:
         \[
-            L(\vb*{c}^T_{\Theta}; \mathcal{D}) = \sum_{n = 1}^{N} (\hat{y}_n(\vb*{x}_n; \vb*{c}^T_{\Theta}) - y_n) ^2 = \sum_{n = 1}^{N} (\vb*{c}^T_{\Theta} \vb*{\phi}(\vb*{x}) - y_n) ^2 = \|\vb*{X}\vb*{c}_{\Theta} - \vb*{y} \|_2^2
+            L(\vb*{c}^T_{\Theta}; \mathcal{D}) = \frac{1}{2} \sum_{n = 1}^{N} (\hat{y}_n(\vb*{x}_n; \vb*{c}^T_{\Theta}) - y_n) ^2 = \frac{1}{2} \sum_{n = 1}^{N} (\vb*{c}^T_{\Theta} \vb*{\phi}(\vb*{x}) - y_n) ^2 = \frac{1}{2} \|\vb*{X}\vb*{c}_{\Theta} - \vb*{y} \|_2^2
         \]
-        where $\vb*{y} = (y_1, y_2, \dots, y_n)$. As such, the minimzation of the squared lost corresponds to a linear least squares problem, which in this case has a unique solution $\vb*{c}^*_{\Theta}$ that is found simply by setting the gradient to zero (since $\vb*{X}$ has rank $N$, $\vb*{X}^T\vb*{X}$ has also rank $N$ and so it is invertible):
+        where $\vb*{y} = (y_1, y_2, \dots, y_n)$. As such, the minimization of the squared lost corresponds to a linear least squares problem, which in this case has a unique solution $\vb*{c}^*_{\Theta}$ that is found simply by setting the gradient to zero:
         \begin{align*}
             \nabla_{\vb*{c}_{\Theta}} L(\vb*{c}^T_{\Theta}; \mathcal{D}) = \vb*{0} &\Leftrightarrow \nabla_{\vb*{c}_{\Theta}}(\vb*{X}\vb*{c}_{\Theta}) \nabla_{\vb*{z}}(\|\vb*{z}\|_2^2) \rvert_{\vb*{z} = \vb*{X}\vb*{c}_{\Theta} - \vb*{y}} = \vb*{0} \Leftrightarrow 2\vb*{X}^T(\vb*{X}\vb*{c}_{\Theta} - \vb*{y}) = \vb*{0} \\
             &\Rightarrow \vb*{c}^*_{\Theta} = (\vb*{X}^T\vb*{X})^{-1}\vb*{X}^T\vb*{y}
         \end{align*}
-        Usually, loss functions of feedforward neural networks are non-convex in their parameters due to multiple compositions of non-linear activation functions, making the global minimization of said functions especially hard. In spite of that, since the presented architecture only has a single hidden layer with at least as many units as the input layer and uses only quadratic activations, we managed to reduce the underlying model to a \textbf{linear regression} by defining the underlying \textbf{feature transformation} $\vb*{\phi}$ and \textbf{weight vector} $\vb*{c}_{\Theta}$. Hence, the minimization of the loss function admits a closed form solution.
+        To prove the existence of $ (\vb*{X}^T\vb*{X})^{-1}$, note that the dimensions of the nullspaces of and $\vb*{X}$ and $\vb*{X}^T\vb*{X}$ are equal, since, for every $\vb*{x} \in \mathbb{R}^{\frac{D(D + 1)}{2}}$:
+        \[
+            \vb*{X}\vb*{x} = \vb*{0} \Rightarrow \vb*{X}^T\vb*{X}\vb*{x} = \vb*{0}
+        \]
+        and 
+        \[
+            \vb*{X}^T\vb*{X}\vb*{x} = \vb*{0} \Rightarrow x^T\vb*{X}^T\vb*{X}\vb*{x} = \vb*{0} 
+            \Rightarrow \|\vb*{X}\vb*{x}\|_2^2 = \vb*{0} \Rightarrow \vb*{X}\vb*{x} = \vb*{0}
+        \]
+        Since $N > \frac{D(D + 1)}{2}$ and $\vb*{X}$ has full column rank ($\frac{D(D + 1)}{2}$), its nullspace has dimension $0$. Hence, $\vb*{X}^T\vb*{X}$ is a $\frac{D(D + 1)}{2} \times \frac{D(D + 1)}{2}$ square matrix with rank $\frac{D(D + 1)}{2} - 0 = \frac{D(D + 1)}{2}$, and so it is invertible. \par
+        Usually, loss functions of feedforward neural networks are non-convex in their parameters due to multiple compositions of non-linear activation functions, making the global minimization of said functions especially hard. In spite of that, since the presented architecture only has a single hidden layer with at least as many units as the input layer and uses only quadratic activations, we managed to reduce it to a \textbf{linear regression} by defining the underlying \textbf{feature transformation} $\vb*{\phi}$ and \textbf{weight vector} $\vb*{c}_{\Theta}$. Hence, the minimization of the loss function becomes much easier, since the global minimizer can be computed in closed form.
     \end{questions}
 \end{document}

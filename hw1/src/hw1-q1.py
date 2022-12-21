@@ -11,6 +11,8 @@ import matplotlib.pyplot as plt
 
 import utils
 
+plt.rcParams['text.usetex'] = True
+plt.rc('font', family='serif')
 
 def configure_seed(seed):
     os.environ["PYTHONHASHSEED"] = str(seed)
@@ -61,9 +63,6 @@ class Perceptron(LinearModel):
             self.W[y_i] += x_i
             self.W[y_hat] -= x_i
 
-        # Q1.1a
-        # raise NotImplementedError
-
 
 class LogisticRegression(LinearModel):
     def update_weight(self, x_i, y_i, learning_rate=0.001):
@@ -72,47 +71,22 @@ class LogisticRegression(LinearModel):
         y_i: the gold label for that example
         learning_rate (float): keep it at the default value for your plots
         """
-        '''
-        Z = 0 
-        aux = 0
-        x_i_row = np.reshape(x_i, (1, len(x_i)))
 
-        def ey_C(i): #return one-hot encoded vector (forces it to be a COLUMN)
-            ret = np.zeros((len(self.W), 1))
-            ret[i] = 1
-            return ret
-
-        for i in range(len(self.W)):
-            Z += np.exp(self.W[i].dot(x_i))  
-        
-        for i in range(len(self.W)):
-            P = np.exp(self.W[i].dot(x_i)) / Z  #scalar
-            aux += P * np.dot(ey_C(i), x_i_row)
-
-        gradient = np.dot(ey_C(y_i), x_i_row) - aux
-
-        self.W = self.W + (learning_rate * gradient)
-        '''
         def ey_C(i): #return one-hot encoded vector
             ret = np.zeros(self.W.shape[0])
             ret[i] = 1
             return ret
-        probs = np.exp(self.W @ x_i)
+        
+        scores = self.W @ x_i
+        scores -= np.max(scores)
+
+        probs = np.exp(scores)
         Z = np.sum(probs)
         probs = probs / Z
 
         gradient = np.outer(probs - ey_C(y_i), x_i)
 
         self.W = self.W - learning_rate * gradient
-        
-        # Z = np.sum([(np.exp(np.dot(self.W[i], x_i))) for i in range(len(self.W))])
-        
-        # aux = np.sum([(np.exp(np.dot(self.W[i], x_i))/Z).dot(np.reshape(ey[i], (len(self.W), 1))).dot(x_i_row) for i in range(len(self.W))])
-
-        # gradient = np.dot(ey_col, np.reshape(x_i_row)) - aux
-
-        # Q1.1b
-        #raise NotImplementedError
 
 
 class MLP(object):
@@ -134,6 +108,7 @@ class MLP(object):
         h_1 = z_1 * (z_1 > 0)
 
         z_2 = self.W2 @ h_1 + self.b2.reshape((self.b2.shape[0], 1))
+        z_2 -= np.max(z_2, axis = 0)
         probs = np.exp(z_2)
         f = probs / np.sum(probs)
         return np.argmax(f, axis = 0)
@@ -150,7 +125,7 @@ class MLP(object):
         return n_correct / n_possible
 
     def train_epoch(self, X, y, learning_rate=0.001):
-        #np.seterr(all='raise')
+
         for i in range(X.shape[0]):
             x = X[i]
             z_1 = self.W1 @ x + self.b1
@@ -158,10 +133,8 @@ class MLP(object):
 
             z_2 = self.W2 @ h_1 + self.b2
             z_2 -= np.max(z_2)
-            #probs = np.exp(z_2)
-
-            f = np.exp(z_2) / np.sum(np.exp(z_2))
-
+            probs = np.exp(z_2)
+            f = probs / np.sum(probs)
 
             output = np.zeros(self.W2.shape[0])
             output[y[i]] = 1
@@ -248,6 +221,8 @@ def main():
 
     # plot
     plot(epochs, valid_accs, test_accs)
+    print(f"Final validation accuracy: {valid_accs[-1]}")
+    print(f"Final test accuracy: {test_accs[-1]}")
 
 
 if __name__ == '__main__':
