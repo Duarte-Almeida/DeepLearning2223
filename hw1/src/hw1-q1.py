@@ -11,6 +11,8 @@ import matplotlib.pyplot as plt
 
 import utils
 
+plt.rcParams['text.usetex'] = True
+plt.rc('font', family='serif')
 
 def configure_seed(seed):
     os.environ["PYTHONHASHSEED"] = str(seed)
@@ -76,7 +78,11 @@ class LogisticRegression(LinearModel):
             ret = np.zeros(self.W.shape[0])
             ret[i] = 1
             return ret
-        probs = np.exp(self.W @ x_i)
+        
+        scores = self.W @ x_i
+        scores -= np.max(scores)
+
+        probs = np.exp(scores)
         Z = np.sum(probs)
         probs = probs / Z
 
@@ -106,6 +112,7 @@ class MLP(object):
         h_1 = z_1 * (z_1 > 0)
 
         z_2 = self.W2 @ h_1 + self.b2.reshape((self.b2.shape[0], 1))
+        z_2 -= np.max(z_2, axis = 0)
         probs = np.exp(z_2)
         f = probs / np.sum(probs)
         return np.argmax(f, axis = 0)
@@ -122,7 +129,7 @@ class MLP(object):
         return n_correct / n_possible
 
     def train_epoch(self, X, y, learning_rate=0.001):
-        #np.seterr(all='raise')
+
         for i in range(X.shape[0]):
 
             #forward propagation
@@ -132,12 +139,11 @@ class MLP(object):
 
             z_2 = self.W2 @ h_1 + self.b2
             z_2 -= np.max(z_2)
-            #probs = np.exp(z_2)
-
-            f = np.exp(z_2) / np.sum(np.exp(z_2))
+            probs = np.exp(z_2)
+            f = probs / np.sum(probs)
 
             #backwards propagation
-            output = np.zeros(self.W2.shape[0]) #one hot encoding
+            output = np.zeros(self.W2.shape[0]) #one-hot encoding
             output[y[i]] = 1
 
             grad_z_2 = - (output - f) 
@@ -222,6 +228,8 @@ def main():
 
     # plot
     plot(epochs, valid_accs, test_accs)
+    print(f"Final validation accuracy: {valid_accs[-1]}")
+    print(f"Final test accuracy: {test_accs[-1]}")
 
 
 if __name__ == '__main__':

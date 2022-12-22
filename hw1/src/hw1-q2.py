@@ -11,6 +11,8 @@ from matplotlib import pyplot as plt
 
 import utils
 
+#DEVICE = torch.device("cuda:0" if torch.cuda.is_available() else "cpu")
+DEVICE = torch.device("cpu")
 
 # Q2.1
 class LogisticRegression(nn.Module):
@@ -26,16 +28,19 @@ class LogisticRegression(nn.Module):
         pytorch to make weights and biases, have a look at
         https://pytorch.org/docs/stable/nn.html
         """
-        super().__init__()
+        super(LogisticRegression, self).__init__()
         # In a pytorch module, the declarations of layers needs to come after
         # the super __init__ line, otherwise the magic doesn't work.
+        self.linear = nn.Linear(n_features, n_classes)
+        #self.activation = nn.Sigmoid()
+
 
     def forward(self, x, **kwargs):
         """
         x (batch_size x n_features): a batch of training examples
 
         Every subclass of nn.Module needs to have a forward() method. forward()
-        describes how the module computes the forward pass. In a log-lineear
+        describes how the module computes the forward pass. In a log-linear
         model like this, for example, forward() needs to compute the logits
         y = Wx + b, and return y (you don't need to worry about taking the
         softmax of y because nn.CrossEntropyLoss does that for you).
@@ -44,8 +49,9 @@ class LogisticRegression(nn.Module):
         forward pass -- this is enough for it to figure out how to do the
         backward pass.
         """
-        raise NotImplementedError
-
+        logits = self.linear(x)
+        #ret = self.activation(logits) I dont know if ure supposed to do this or not
+        return logits
 
 # Q2.2
 class FeedforwardNetwork(nn.Module):
@@ -96,7 +102,18 @@ def train_batch(X, y, model, optimizer, criterion, **kwargs):
     This function should return the loss (tip: call loss.item()) to get the
     loss as a numerical value that is not part of the computation graph.
     """
-    raise NotImplementedError
+    
+    optimizer.zero_grad() #Zero the gradient buffers
+
+    #Forward pass
+    y_ = model(X) #compute the model output (predicted classes)
+    loss = criterion(y_, y)
+
+    #Backward pass and updating the parameters
+    loss.backward()
+    optimizer.step()
+
+    return loss.item()
 
 
 def predict(model, X):
@@ -158,12 +175,16 @@ def main():
     dev_X, dev_y = dataset.dev_X, dataset.dev_y
     test_X, test_y = dataset.test_X, dataset.test_y
 
+    #Support for GPU if available
+    dev_X, dev_y = dev_X.to(DEVICE), dev_y.to(DEVICE)
+    test_X, test_y = test_X.to(DEVICE), test_y.to(DEVICE)
+
     n_classes = torch.unique(dataset.y).shape[0]  # 10
     n_feats = dataset.X.shape[1]
 
     # initialize the model
     if opt.model == 'logistic_regression':
-        model = LogisticRegression(n_classes, n_feats)
+        model = LogisticRegression(n_classes, n_feats).to(DEVICE)
     else:
         model = FeedforwardNetwork(
             n_classes,
@@ -172,7 +193,7 @@ def main():
             opt.layers,
             opt.activation,
             opt.dropout
-        )
+        ).to(DEVICE)
 
     # get an optimizer
     optims = {"adam": torch.optim.Adam, "sgd": torch.optim.SGD}
@@ -194,6 +215,9 @@ def main():
     for ii in epochs:
         print('Training epoch {}'.format(ii))
         for X_batch, y_batch in train_dataloader:
+            #Support for GPU if available
+            X_batch, y_batch = X_batch.to(DEVICE), y_batch.to(DEVICE)
+
             loss = train_batch(
                 X_batch, y_batch, model, optimizer, criterion)
             train_losses.append(loss)
