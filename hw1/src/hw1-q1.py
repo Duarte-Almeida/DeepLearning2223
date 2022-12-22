@@ -62,7 +62,6 @@ class Perceptron(LinearModel):
             self.W[y_hat] -= x_i
 
         # Q1.1a
-        # raise NotImplementedError
 
 
 class LogisticRegression(LinearModel):
@@ -72,27 +71,7 @@ class LogisticRegression(LinearModel):
         y_i: the gold label for that example
         learning_rate (float): keep it at the default value for your plots
         """
-        '''
-        Z = 0 
-        aux = 0
-        x_i_row = np.reshape(x_i, (1, len(x_i)))
 
-        def ey_C(i): #return one-hot encoded vector (forces it to be a COLUMN)
-            ret = np.zeros((len(self.W), 1))
-            ret[i] = 1
-            return ret
-
-        for i in range(len(self.W)):
-            Z += np.exp(self.W[i].dot(x_i))  
-        
-        for i in range(len(self.W)):
-            P = np.exp(self.W[i].dot(x_i)) / Z  #scalar
-            aux += P * np.dot(ey_C(i), x_i_row)
-
-        gradient = np.dot(ey_C(y_i), x_i_row) - aux
-
-        self.W = self.W + (learning_rate * gradient)
-        '''
         def ey_C(i): #return one-hot encoded vector
             ret = np.zeros(self.W.shape[0])
             ret[i] = 1
@@ -104,15 +83,8 @@ class LogisticRegression(LinearModel):
         gradient = np.outer(probs - ey_C(y_i), x_i)
 
         self.W = self.W - learning_rate * gradient
-        
-        # Z = np.sum([(np.exp(np.dot(self.W[i], x_i))) for i in range(len(self.W))])
-        
-        # aux = np.sum([(np.exp(np.dot(self.W[i], x_i))/Z).dot(np.reshape(ey[i], (len(self.W), 1))).dot(x_i_row) for i in range(len(self.W))])
 
-        # gradient = np.dot(ey_col, np.reshape(x_i_row)) - aux
-
-        # Q1.1b
-        #raise NotImplementedError
+        #Q1.1b
 
 
 class MLP(object):
@@ -152,6 +124,8 @@ class MLP(object):
     def train_epoch(self, X, y, learning_rate=0.001):
         #np.seterr(all='raise')
         for i in range(X.shape[0]):
+
+            #forward propagation
             x = X[i]
             z_1 = self.W1 @ x + self.b1
             h_1 = z_1 * (z_1 > 0)
@@ -162,13 +136,13 @@ class MLP(object):
 
             f = np.exp(z_2) / np.sum(np.exp(z_2))
 
-
-            output = np.zeros(self.W2.shape[0])
+            #backwards propagation
+            output = np.zeros(self.W2.shape[0]) #one hot encoding
             output[y[i]] = 1
 
-            grad_z_2 = - (output - f)
+            grad_z_2 = - (output - f) 
             grad_W_2 = np.outer(grad_z_2, h_1)
-            grad_b_2 = grad_z_2
+            grad_b_2 = grad_z_2  #gradient for the bias weights
 
             grad_h_1 = self.W2.T @ grad_z_2
             grad_z_1 = grad_h_1 * (z_1 > 0)
