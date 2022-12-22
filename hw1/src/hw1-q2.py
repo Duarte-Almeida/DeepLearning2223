@@ -76,7 +76,7 @@ class FeedforwardNetwork(nn.Module):
 
         #List to allow multiple hidden layers
         self.hidden_layers = nn.ModuleList()
-        for i in (len(layers) - 1): #a single layer feedforward NN doesnt have hidden layers
+        for _ in (range(layers - 1)): #a single layer feedforward NN doesnt have hidden layers
             self.hidden_layers.append(nn.Linear(hidden_size, hidden_size)) #hidden_size stays constant
         
         #Dropout Regularization Layer
@@ -85,8 +85,17 @@ class FeedforwardNetwork(nn.Module):
         #Output Layer
         self.out_layer = nn.Linear(hidden_size, n_classes)
 
-        #Activation Function
-        self.activation = activation_type
+        #Activation Function (Dont know if theres a way to make this more automatic/pretty)
+
+        match activation_type:
+
+            case 'relu':
+                self.activation = nn.ReLU()
+            case 'tanh':
+                self.activation = nn.Tanh()
+            case _:
+                pass
+
 
     def forward(self, x, **kwargs):
         """
@@ -97,7 +106,7 @@ class FeedforwardNetwork(nn.Module):
         layers, pointwise nonlinear functions, and dropout.
         """
         #Input Layer Activation
-        x = self.activation(self.in_layer)
+        x = self.activation(self.in_layer(x))
         
         #Hidden Layers
         for layer in self.hidden_layers:
@@ -177,7 +186,7 @@ def plot(epochs, plottable, ylabel='', name='', titulo=''):
 def main():
     parser = argparse.ArgumentParser()
     parser.add_argument('model',
-                        choices=['logistic_regression', 'mlp'],
+                        choices=['logistic_regression', 'feedforward'],
                         help="Which model should the script run?")
     parser.add_argument('-epochs', default=20, type=int,
                         help="""Number of epochs to train for. You should not
@@ -186,7 +195,7 @@ def main():
                         help="Size of training batch.")
     parser.add_argument('-learning_rate', type=float, default=0.01)
     parser.add_argument('-l2_decay', type=float, default=0)
-    parser.add_argument('-hidden_sizes', type=int, default=100)
+    parser.add_argument('-hidden_size', type=int, default=100)
     parser.add_argument('-layers', type=int, default=1)
     parser.add_argument('-dropout', type=float, default=0.3)
     parser.add_argument('-activation',
