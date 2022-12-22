@@ -129,10 +129,60 @@
 
         \end{parts}
 
-
     \end{questions}
 
     \section*{Question 2}
+
+    \begin{questions}
+        \question
+        The best configuration in terms of \textbf{validation accuracy} is the on with learning rate of \textbf{0.01}, as shown in the table below. The final \textbf{test error} in that configuration is 0.6641.
+         
+        \begin{table}[h!]
+            \centering
+            \begin{tabular}{l|lllll}
+                                &                                     & learning rate                      &                 &  &  \\ \cline{2-4}
+                                & \multicolumn{1}{l|}{0.001}          & \multicolumn{1}{l|}{0.01}          & 0.1             &  &  \\ \cline{1-4}
+            validation accuracy & \multicolumn{1}{l|}{0.795 / 0.6504} & \multicolumn{1}{l|}{0.8062/0.6641} & 0.7947 / 0.6331 &  & 
+            \end{tabular}
+        \end{table}
+        Plots of loss and validation error vs epoch for learning parameter $0.01$:
+        \begin{figure}[H]
+            \centering
+            \includegraphics[scale = 0.75]{logistic_regression-training-loss-0.01-sgd.pdf}
+        \end{figure}
+
+        \begin{figure}[H]
+            \centering
+            \includegraphics[scale = 0.75]{logistic_regression-validation-accuracy-0.01-sgd.pdf}
+        \end{figure}
+
+        \question
+        The best configuration in terms of \textbf{validation accuracy} is the on with learning rate of \textbf{xxxx}, as shown in the table below. The final \textbf{test error} in that configuration is yyyy.
+
+        \begin{table}[h!]
+            \centering
+            \begin{tabular}{l|lll|ll|ll|ll}
+                                & \multicolumn{3}{l|}{learning rate}                            & \multicolumn{2}{l|}{hidden size} & \multicolumn{2}{l|}{dropout}     & \multicolumn{2}{l}{activation}   \\ \cline{2-10} 
+                                & \multicolumn{1}{l|}{0.001} & \multicolumn{1}{l|}{0.01} & 0.1  & \multicolumn{1}{l|}{100}  & 200  & \multicolumn{1}{l|}{0.3}  & 0.5  & \multicolumn{1}{l|}{relu} & tanh \\ \hline
+            validation accuracy & \multicolumn{1}{l|}{xxxxx} & \multicolumn{1}{l|}{xxxx} & xxxx & \multicolumn{1}{l|}{xxxx} & xxxx & \multicolumn{1}{l|}{xxxx} & xxxx & \multicolumn{1}{l|}{xxxx} & xxxx
+            \end{tabular}
+            \end{table}
+
+        \question
+
+        The best configuration in terms of \textbf{validation accuracy} is the on with learning rate of \textbf{xxxx}, as shown in the table below. The final \textbf{test error} in that configuration is yyyy.
+
+        \begin{table}[h!]
+            \centering
+            \begin{tabular}{l|lllll}
+                                &                                     & layers                      &                 &  &  \\ \cline{2-4}
+                                & \multicolumn{1}{l|}{1}          & \multicolumn{1}{l|}{2}          & 3           &  &  \\ \cline{1-4}
+            validation accuracy & \multicolumn{1}{l|}{xxxx} & \multicolumn{1}{l|}{xxxx} & xxxx &  & 
+            \end{tabular}
+        \end{table}
+
+
+    \end{questions}
 
     \section*{Question 3}
     \begin{questions}

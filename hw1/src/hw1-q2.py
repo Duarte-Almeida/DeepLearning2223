@@ -11,6 +11,9 @@ from matplotlib import pyplot as plt
 
 import utils
 
+plt.rcParams['text.usetex'] = True
+plt.rc('font', family='serif')
+
 #DEVICE = torch.device("cuda:0" if torch.cuda.is_available() else "cpu")
 DEVICE = torch.device("cpu")
 
@@ -179,7 +182,7 @@ def plot(epochs, plottable, ylabel='', name='', titulo=''):
     plt.ylabel(ylabel)
     plt.plot(epochs, plottable)
     #Show the final test accuracy on the plot
-    plt.title(titulo)
+    #plt.title(titulo)
     plt.savefig('%s.pdf' % (name), bbox_inches='tight')
 
 
@@ -277,8 +280,8 @@ def main():
 
     plot(epochs, train_mean_losses, ylabel='Loss', name='{}-training-loss-{}'.format(opt.model, config))
     #Makes it so that the final test accuracy is written on the plot (for easier recording)
-    title = 'Final Test acc: %.4f' % (evaluate(model, test_X, test_y))
-    plot(epochs, valid_accs, ylabel='Validation Accuracy', name='{}-validation-accuracy-{}'.format(opt.model, config), titulo = title)
+    #title = f'$\\eta = {opt.learning_rate}$'
+    plot(epochs, valid_accs, ylabel='Validation Accuracy', name='{}-validation-accuracy-{}'.format(opt.model, config))
 
 
 if __name__ == '__main__':
