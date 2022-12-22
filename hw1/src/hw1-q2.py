@@ -241,7 +241,7 @@ def main():
     plot(epochs, train_mean_losses, ylabel='Loss', name='{}-training-loss-{}'.format(opt.model, config))
     #Makes it so that the final test accuracy is written on the plot (for easier recording)
     title = 'Final Test acc: %.4f' % (evaluate(model, test_X, test_y))
-    plot(epochs, valid_accs, ylabel='Accuracy', name='{}-validation-accuracy-{}'.format(opt.model, config), titulo = title)
+    plot(epochs, valid_accs, ylabel='Validation Accuracy', name='{}-validation-accuracy-{}'.format(opt.model, config), titulo = title)
 
 
 if __name__ == '__main__':
