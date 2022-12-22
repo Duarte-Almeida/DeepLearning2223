@@ -32,7 +32,7 @@ class LogisticRegression(nn.Module):
         # In a pytorch module, the declarations of layers needs to come after
         # the super __init__ line, otherwise the magic doesn't work.
         self.linear = nn.Linear(n_features, n_classes)
-        #self.activation = nn.Sigmoid()
+        self.activation = nn.Sigmoid()
 
 
     def forward(self, x, **kwargs):
@@ -50,8 +50,9 @@ class LogisticRegression(nn.Module):
         backward pass.
         """
         logits = self.linear(x)
-        #ret = self.activation(logits) I dont know if ure supposed to do this or not
-        return logits
+        ret = self.activation(logits) # I dont know if ure supposed to do this or not
+        return ret
+        #return logits
 
 # Q2.2
 class FeedforwardNetwork(nn.Module):
@@ -111,9 +112,8 @@ class FeedforwardNetwork(nn.Module):
         #Hidden Layers
         for layer in self.hidden_layers:
             x = self.activation(layer(x))
-
-        #Dropout
-        x = self.dropout(x)
+            #Dropout
+            x = self.dropout(x)
 
         #Output Activation
         x = self.out_layer(x)
@@ -143,8 +143,8 @@ def train_batch(X, y, model, optimizer, criterion, **kwargs):
     optimizer.zero_grad() #Zero the gradient buffers
 
     #Forward pass
-    y_ = model(X) #compute the model output (predicted classes)
-    loss = criterion(y_, y)
+    y_ = model(X) #Compute the model output (predicted classes)
+    loss = criterion(y_, y) #Select the loss criteria
 
     #Backward pass and updating the parameters
     loss.backward()
