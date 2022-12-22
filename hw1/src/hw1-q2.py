@@ -70,8 +70,23 @@ class FeedforwardNetwork(nn.Module):
         attributes that each FeedforwardNetwork instance has. Note that nn
         includes modules for several activation functions and dropout as well.
         """
-        super().__init__()
-        # Implement me!
+        super(FeedforwardNetwork, self).__init__()
+        #Input layer
+        self.in_layer = nn.Linear(n_features, hidden_size) #(10 x hidden_size)
+
+        #List to allow multiple hidden layers
+        self.hidden_layers = nn.ModuleList()
+        for i in (len(layers) - 1): #a single layer feedforward NN doesnt have hidden layers
+            self.hidden_layers.append(nn.Linear(hidden_size, hidden_size)) #hidden_size stays constant
+        
+        #Dropout Regularization Layer
+        self.dropout = nn.Dropout(p=dropout)
+
+        #Output Layer
+        self.out_layer = nn.Linear(hidden_size, n_classes)
+
+        #Activation Function
+        self.activation = activation_type
 
     def forward(self, x, **kwargs):
         """
@@ -81,7 +96,20 @@ class FeedforwardNetwork(nn.Module):
         the output logits from x. This will include using various hidden
         layers, pointwise nonlinear functions, and dropout.
         """
-        raise NotImplementedError
+        #Input Layer Activation
+        x = self.activation(self.in_layer)
+        
+        #Hidden Layers
+        for layer in self.hidden_layers:
+            x = self.activation(layer(x))
+
+        #Dropout
+        x = self.dropout(x)
+
+        #Output Activation
+        x = self.out_layer(x)
+
+        return x
 
 
 def train_batch(X, y, model, optimizer, criterion, **kwargs):
