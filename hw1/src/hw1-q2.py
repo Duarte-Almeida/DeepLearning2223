@@ -136,11 +136,13 @@ def evaluate(model, X, y):
     return n_correct / n_possible
 
 
-def plot(epochs, plottable, ylabel='', name=''):
+def plot(epochs, plottable, ylabel='', name='', titulo=''):
     plt.clf()
     plt.xlabel('Epoch')
     plt.ylabel(ylabel)
     plt.plot(epochs, plottable)
+    #Show the final test accuracy on the plot
+    plt.title(titulo)
     plt.savefig('%s.pdf' % (name), bbox_inches='tight')
 
 
@@ -237,7 +239,9 @@ def main():
         config = "{}-{}-{}-{}-{}-{}-{}".format(opt.learning_rate, opt.hidden_size, opt.layers, opt.dropout, opt.activation, opt.optimizer, opt.batch_size)
 
     plot(epochs, train_mean_losses, ylabel='Loss', name='{}-training-loss-{}'.format(opt.model, config))
-    plot(epochs, valid_accs, ylabel='Accuracy', name='{}-validation-accuracy-{}'.format(opt.model, config))
+    #Makes it so that the final test accuracy is written on the plot (for easier recording)
+    title = 'Final Test acc: %.4f' % (evaluate(model, test_X, test_y))
+    plot(epochs, valid_accs, ylabel='Accuracy', name='{}-validation-accuracy-{}'.format(opt.model, config), titulo = title)
 
 
 if __name__ == '__main__':
