@@ -53,9 +53,8 @@ class LogisticRegression(nn.Module):
         backward pass.
         """
         logits = self.linear(x)
-        ret = self.activation(logits) # I dont know if ure supposed to do this or not
+        ret = self.activation(logits)
         return ret
-        #return logits
 
 # Q2.2
 class FeedforwardNetwork(nn.Module):
@@ -80,7 +79,7 @@ class FeedforwardNetwork(nn.Module):
 
         #List to allow multiple hidden layers
         self.hidden_layers = nn.ModuleList()
-        for _ in (range(layers - 1)): #a single layer feedforward NN doesnt have hidden layers
+        for _ in (range(layers)): #a single layer feedforward NN doesnt have hidden layers
             self.hidden_layers.append(nn.Linear(hidden_size, hidden_size)) #hidden_size stays constant
         
         #Dropout Regularization Layer
@@ -91,15 +90,12 @@ class FeedforwardNetwork(nn.Module):
 
         #Activation Function (Dont know if theres a way to make this more automatic/pretty)
 
-        match activation_type:
-
-            case 'relu':
-                self.activation = nn.ReLU()
-            case 'tanh':
-                self.activation = nn.Tanh()
-            case _:
-                pass
-
+        if activation_type == "relu":
+            self.activation = nn.ReLU()
+        elif activation_type == "tanh":
+            self.activation = nn.Tanh()
+        else:
+            pass
 
     def forward(self, x, **kwargs):
         """
@@ -226,7 +222,7 @@ def main():
 
     # initialize the model
     if opt.model == 'logistic_regression':
-        model = LogisticRegression(n_classes, n_feats).to(DEVICE)
+        model = LogisticRegression(n_classes, n_feats)
     else:
         model = FeedforwardNetwork(
             n_classes,
@@ -235,7 +231,9 @@ def main():
             opt.layers,
             opt.activation,
             opt.dropout
-        ).to(DEVICE)
+        )
+
+    model = model.to(DEVICE)
 
     # get an optimizer
     optims = {"adam": torch.optim.Adam, "sgd": torch.optim.SGD}

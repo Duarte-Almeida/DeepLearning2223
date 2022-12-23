@@ -1,3 +1,18 @@
+% \documentclass{article}
+% \usepackage[utf8]{inputenc}
+
+% \title{AProf Hw1}
+% \author{André Lopes Rodrigues}
+% \date{December 2022}
+
+% \begin{document}
+
+% \maketitle
+
+% \section{Introduction}
+
+% \end{document}
+
 \documentclass{exam}
 
 \usepackage{titling}
@@ -13,6 +28,7 @@
 \usepackage{physics}
 \usepackage{amsthm}
 \usepackage[font={small}]{caption}
+\usepackage{courier}
 
 \graphicspath{ {./pictures} }
 
@@ -70,39 +86,57 @@
     \begin{questions}
         \question
         \begin{parts}
-
-            \part
-
-            \begin{align*}
-                \text{Final accuracy on validation set: } 0.7236 \\
-                \text{Final accuracy on test set: } 0.6193
-            \end{align*}
-
-            \vspace{-2.5em}
-            \begin{figure}[H]
+            \part %1.1(a)
+            After implementing the \texttt{update\_weights} method, the perceptron was trained for 20 epochs, and the validation and test accuracies were plotted as follows:
+            
+            \vspace{-0.4cm}
+            \begin{figure}[h!]
                 \centering
                 \includegraphics[scale = 0.75]{perceptron.pdf}
             \end{figure}
 
-            \part 
-
-            \begin{align*}
-                \text{Final accuracy on validation set: } 0.8251 \\
-                \text{Final accuracy on test set: } 0.7028
-            \end{align*}
-
-            \vspace{-2.5em}
-            \begin{figure}[H]
+            The final validation and test accuracies were also obtained,
+            % \begin{align*}
+            %     \text{Final accuracy on validation set: } 0.7236 \\
+            %     \text{Final accuracy on test set: } 0.6193
+            % \end{align*}
+            \begin{table}[h!]
+            \centering
+                \begin{tabular}{|l|l|}
+                    \hline
+                    \textbf{Final Validation Accuracy} & 0.7236 \\ \hline
+                    \textbf{Final Test Accuracy}       & 0.6193 \\ \hline
+                \end{tabular}
+            \end{table}
+    
+            \part %1.1(b)
+            For the logistic regression, the correspondent \texttt{update\_weights} method was also obtained, and using a learning rate of $\eta = 0.001$, the model was trained for 20 epochs, having the accuracies for the validation and test set also been plotted:
+            \newpage
+            %\vspace{-2.5em}
+            \begin{figure}[h!]
                 \centering
                 \includegraphics[scale = 0.75]{logistic_regression.pdf}
             \end{figure}
-
+            % \begin{align*}
+            %     \text{Final accuracy on validation set: } 0.8251 \\
+            %     \text{Final accuracy on test set: } 0.7028
+            % \end{align*}
+            The final validation and test accuracies obtained are as follows,
+            \begin{table}[h!]
+            \centering
+                \begin{tabular}{|c|c|}
+                    \hline
+                    \textbf{Final Validation Accuracy} & 0.8251 \\ \hline
+                    \textbf{Final Test Accuracy}       & 0.7028 \\ \hline
+                \end{tabular}
+            \end{table}
+            
         \end{parts}
-
+        %\newpage
         \question
         \begin{parts}
-
-            \part The use of multilayer perceptrons provide a form of \textbf{representation learing} through the composition of multiclass perceptrons with non-linear activation functions; in particular, they are able to search through some subspace of feature transformations and find one for which the linear separation of data is easier. In practical terms, this layering provides \textbf{hierarchical compositionality}, i.e., each layer encodes a distributed representation that is more abstract the closer it is to the output layer, finding meaningful features at different levels of granularity. \\
+            %1.2(a)
+            \part The use of multilayer perceptrons provides a form of \textbf{representation learning} through the composition of multiclass perceptrons with non-linear activation functions; in particular, they are able to search through some subspace of feature transformations and find one for which the linear separation of data is easier. In practical terms, this layering provides \textbf{hierarchical compositionality}, i.e., each layer encodes a distributed representation that is more abstract the closer it is to the output layer, finding meaningful features at different levels of granularity. \\
             In the context of character recognition, MLPs are usually able to successively detect features of symbols (i.e., edges and parts), combine them in coarser features and perform an accurate classification at the end. This is usually not the case if we use simple perceptrons, as plain linear combinations of grayscale values are less capable of detecting those distinctive features and be flexible to the variability that the same character may show.\\
             Nevertheless, an MLP that uses linear activation functions ($g(z) = z$) \textbf{does not display this feature}, it corresponds to a linear classifier, effectively functioning like a simple perceptron:
             \begin{align*}
@@ -113,19 +147,34 @@
                 &= \vb*{W}^{(L + 1)}(\vb*{W}^{(L)}( \dots \; (\vb*{W}^{(1)}\vb*{x} + \vb*{b}^{(1)}))+ \vb*{b}^{(L)}) + \vb*{b}^{(L + 1)} \\
                 &=  \underbrace{\vb*{W}^{(L + 1)} \dots  \vb*{W}^{(1)}}_{\vb*{\widetilde{W}}} \vb*{x} + \underbrace{\vb*{W}^{(L + 1)} \dots \vb*{W}^{(2)} \vb*{b}^{(1)} + \dots + \vb*{W}^{(L + 1)} \vb*{b}^{(L)} + \vb*{b}^{(L + 1)}}_{\vb*{\widetilde{b}}}
             \end{align*}
-
+            \newpage
+            %1.2(b)
             \part
-
-            \begin{align*}
-                \text{Final accuracy on validation set: } 0.9316 \\
-                \text{Final accuracy on test set: } 0.8545
-            \end{align*}
-
-            \vspace{-2.5em}
-            \begin{figure}[H]
+            Having implemented the code for the multi-layer perceptron (with a single hidden layer) and its backpropagation algorithm, the model was built with 200 hidden units, \textbf{\texttt{ReLU}} as the activation function, and cross-entropy as the loss criterion. 
+            Stochastic gradient descent was then used to train the model for 20 epochs, with a learning rate of $\eta = 0.001$. The weights were initialized with a normal distribution $w_{ij} \sim \mathcal{N}(\mu, \sigma^2)$, with mean $\mu = 0.1$ and variance $\sigma^2 = 0.1$ and bias set to zero. The accuracies for the validation and test sets were then plotted:
+            \vspace{-0.4cm}
+            \begin{figure}[h!]
                 \centering
                 \includegraphics[scale = 0.75]{mlp.pdf}
             \end{figure}
+
+            The final validation and test accuracies were also obtained,  
+            
+            \begin{table}[h!]
+            \centering
+                \begin{tabular}{|c|c|}
+                    \hline
+                    \textbf{Final Validation Accuracy} & 0.9316 \\ \hline
+                    \textbf{Final Test Accuracy}       & 0.8545 \\ \hline
+                \end{tabular}
+            \end{table}
+            
+            % \begin{align*}
+            %     \text{Final accuracy on validation set: } 0.9316 \\
+            %     \text{Final accuracy on test set: } 0.8545
+            % \end{align*}
+            
+            
 
         \end{parts}
 
@@ -135,7 +184,8 @@
 
     \begin{questions}
         \question
-        The best configuration in terms of \textbf{validation accuracy} is the on with learning rate of \textbf{0.01}, as shown in the table below. The final \textbf{test error} in that configuration is 0.6641.
+        The best configuration in terms of \textbf{validation accuracy} is the one with 
+ a learning rate of $\eta = \textbf{0.01}$, as shown in the table below. The final \textbf{test error} in that configuration is 0.6641.
          
         \begin{table}[h!]
             \centering
@@ -145,6 +195,7 @@
             validation accuracy & \multicolumn{1}{l|}{0.795 / 0.6504} & \multicolumn{1}{l|}{0.8062/0.6641} & 0.7947 / 0.6331 &  & 
             \end{tabular}
         \end{table}
+        
         Plots of loss and validation error vs epoch for learning parameter $0.01$:
         \begin{figure}[H]
             \centering
