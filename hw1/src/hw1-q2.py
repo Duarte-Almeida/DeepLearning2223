@@ -79,7 +79,7 @@ class FeedforwardNetwork(nn.Module):
 
         #List to allow multiple hidden layers
         self.hidden_layers = nn.ModuleList()
-        for _ in (range(layers)): #a single layer feedforward NN doesnt have hidden layers
+        for _ in (range(layers) - 1): #a single layer feedforward NN doesnt have hidden layers
             self.hidden_layers.append(nn.Linear(hidden_size, hidden_size)) #hidden_size stays constant
         
         #Dropout Regularization Layer
@@ -88,7 +88,7 @@ class FeedforwardNetwork(nn.Module):
         #Output Layer
         self.out_layer = nn.Linear(hidden_size, n_classes)
 
-        #Activation Function (Dont know if theres a way to make this more automatic/pretty)
+        #Activation Function 
 
         if activation_type == "relu":
             self.activation = nn.ReLU()
@@ -107,7 +107,6 @@ class FeedforwardNetwork(nn.Module):
         """
         #Input Layer Activation
         x = self.activation(self.in_layer(x))
-        
         x =self.dropout(x)
         
         #Hidden Layers
@@ -209,6 +208,7 @@ def main():
 
     data = utils.load_classification_data()
     dataset = utils.ClassificationDataset(data)
+    torch.manual_seed(42)
     train_dataloader = DataLoader(
         dataset, batch_size=opt.batch_size, shuffle=True)
 
