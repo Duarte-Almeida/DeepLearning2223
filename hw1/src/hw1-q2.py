@@ -108,6 +108,8 @@ class FeedforwardNetwork(nn.Module):
         #Input Layer Activation
         x = self.activation(self.in_layer(x))
         
+        x =self.dropout(x)
+        
         #Hidden Layers
         for layer in self.hidden_layers:
             x = self.activation(layer(x))
