@@ -117,12 +117,12 @@
             \end{table}
 
             \part %1.1(b)
-            For the logistic regression, the correspondent \texttt{update\_weights}
+            For the logistic regression, the corresponding \texttt{update\_weights}
             method was also obtained, and using a learning rate of $\eta = 0.001$,
             the model was trained for 20 epochs, having the accuracies for the validation
             and test set also been plotted:
             
-            \begin{figure}[h!]
+            \begin{figure}[H]
                 \centering
                 \includegraphics[scale = 0.75]{logistic_regression.pdf}
             \end{figure}
@@ -147,7 +147,7 @@
             %1.2(a)
             \part The use of multilayer perceptrons provides a form of \textbf{representation learning} through the composition of multiclass perceptrons with non-linear activation functions; in particular, they are able to search through some subspace of feature transformations and find one for which the linear separation of data is easier. In practical terms, this layering provides \textbf{hierarchical compositionality}, i.e., each layer encodes a distributed representation that is more abstract the closer it is to the output layer, finding meaningful features at different levels of granularity. \\
             In the context of character recognition, MLPs are usually able to successively detect features of symbols (i.e., edges and parts), combine them in coarser features and perform an accurate classification at the end. This is usually not the case if we use simple perceptrons, as plain linear combinations of grayscale values are less capable of detecting those distinctive features and of being flexible to the variability that the same character may show.\\
-            Nevertheless, an MLP that uses linear activation functions ($g(z) = z$) \textbf{does not display this feature}, as it corresponds to a linear classifier, effectively functioning like a simple perceptron:
+            Nevertheless, an MLP that \textbf{only} uses linear activation functions ($g(z) = z$) \textbf{does not display this feature}, as it corresponds to a linear classifier, effectively functioning like a simple perceptron:
             \begin{align*}
                 \vb*{f}(\vb*{x})&= g(\vb*{z}^{(L + 1)}) = \vb*{z}^{(L + 1)} \\
                 &= \vb*{W}^{(L + 1)}\vb*{h}^{(L)} + \vb*{b}^{(L + 1)} \\
@@ -194,84 +194,84 @@
     \begin{questions}
         \question %2.1
         For the linear model with logistic regression, the best configuration in terms of \textbf{validation accuracy} is the one with 
- a learning rate of $\eta = \textbf{0.01}$, as shown in the table below. The final \textbf{test error} in that configuration is 0.6641.
+ a learning rate of $\eta = \textbf{0.001}$, as shown in the table below. The final \textbf{test error} in that configuration is 0.7019.
         
         \begin{table}[h!]
             \centering
-            \begin{tabular}{l|lllll}
+            \begin{tabular}{c|ccccc}
                                 &                                     & learning rate                      &                 &  &  \\ \cline{2-4}
-                                & \multicolumn{1}{l|}{0.001}          & \multicolumn{1}{l|}{0.01}          & 0.1             &  &  \\ \cline{1-4}
-            validation accuracy & \multicolumn{1}{l|}{0.795 / 0.6504} & \multicolumn{1}{l|}{0.8062/0.6641} & 0.7947 / 0.6331 &  & 
+                                & \multicolumn{1}{c|}{0.001}          & \multicolumn{1}{c|}{0.01}          & 0.1             &  &  \\ \cline{1-4}
+            validation accuracy & \multicolumn{1}{c|}{0.8256} & \multicolumn{1}{c|}{0.8033} & 0.7516 &  & 
             \end{tabular}
         \end{table}
 
     \newpage
 
-        The plots of the loss and validation accuracy over the number of epochs, respectively, for the learning rate of $\eta = 0.01$ can be found below.
+        The plots of the loss and validation accuracy over the number of epochs, respectively, for the learning rate of $\eta = 0.001$ can be found below.
 
         \begin{figure}[H]
             \centering
-            \includegraphics[scale = 0.75]{logistic_regression-training-loss-0.01-sgd.pdf}
+            \includegraphics[scale = 0.75]{logistic_regression-training-loss-0.001-sgd.pdf}
         \end{figure}
 
         \begin{figure}[H]
             \centering
-            \includegraphics[scale = 0.75]{logistic_regression-validation-accuracy-0.01-sgd.pdf}
+            \includegraphics[scale = 0.75]{logistic_regression-validation-accuracy-0.001-sgd.pdf}
         \end{figure}
 
         \question %2.2
         The best configuration for the feedforward neural network in terms of \textbf{validation accuracy}
-        is the one that maintains the default configuration but that uses a learning rate of $\eta = \textbf{0.1}$, 
-        as shown in the table below. The final \textbf{test error} in that configuration is 0.8932.
+        is the one that maintains the default configuration but that uses \textbf{200 hidden units}, 
+        as shown in the table below. The final \textbf{test error} in that configuration is 0.8820.
         %0.8619, 0.7429||   (0.9431, 0.8674) ||  (0.9535, 0.8932)
         \begin{table}[h!]
             \centering
             \begin{tabular}{c|ccc|cc|cc|cc}
                                 & \multicolumn{3}{c|}{learning rate}                            & \multicolumn{2}{c|}{hidden size} & \multicolumn{2}{c|}{dropout}     & \multicolumn{2}{c}{activation}   \\ \cline{2-10} 
                                 & \multicolumn{1}{c|}{0.001} & \multicolumn{1}{c|}{0.01} & 0.1  & \multicolumn{1}{c|}{100}  & 200  & \multicolumn{1}{c|}{0.3}  & 0.5  & \multicolumn{1}{c|}{relu} & tanh \\ \hline
-            validation accuracy & \multicolumn{1}{c|}{0.8619} & \multicolumn{1}{c|}{0.9431} & 0.9535 & \multicolumn{1}{c|}{0.9431} & 0.9498 & \multicolumn{1}{c|}{0.9498} & 0.9431 & \multicolumn{1}{c|}{0.9431} & 0.9410
+            validation accuracy & \multicolumn{1}{c|}{0.8658} & \multicolumn{1}{c|}{0.9391} & 0.9439 & \multicolumn{1}{c|}{0.9391} & 0.9490 & \multicolumn{1}{c|}{0.9391} & 0.9312 & \multicolumn{1}{c|}{0.9391} & 0.9140
             \end{tabular}
         \end{table}
         
         \newpage
 
         Below are the plots for respectively, the loss and the validation accuracy over the number of epochs,
-        for a learning rate of $\eta = 0.1$.
+        for 200 hidden units:
 
         \begin{figure}[H]
             \centering
-            \includegraphics[scale = 0.75]{feedforward-training-loss-0.1-100-1-0.3-relu-sgd-16.pdf}
+            \includegraphics[scale = 0.75]{feedforward-training-loss-0.01-200-1-0.3-relu-sgd-16.pdf}
         \end{figure}
 
         \begin{figure}[H]
             \centering
-            \includegraphics[scale = 0.75]{feedforward-validation-accuracy-0.1-100-1-0.3-relu-sgd-16.pdf}
+            \includegraphics[scale = 0.75]{feedforward-validation-accuracy-0.01-200-1-0.3-relu-sgd-16.pdf}
         \end{figure}
         \question %2.3
 
         Using the default hyperparameters, the number of hidden layers was increased
-        and it was found that the best configuration in terms of \textbf{validation accuracy} is the one with \textbf{3} hidden layers,
-        as shown in the table below. The final \textbf{test error} in that configuration is 0.8682.
+        and it was found that the best configuration in terms of \textbf{validation accuracy} is the one with \textbf{2 hidden layers},
+        as shown in the table below. The final \textbf{test error} in that configuration is 0.8707.
 
         \begin{table}[h!]
             \centering
             \begin{tabular}{l|cc}
                  & \multicolumn{2}{c}{hidden layers}     \\ \cline{2-3} 
                  & \multicolumn{1}{c|}{2}      & 3       \\ \hline
-                    \multicolumn{1}{c|}{validation accuracy} & \multicolumn{1}{c|}{0.9476} & 0.9485,
+                    \multicolumn{1}{c|}{validation accuracy} & \multicolumn{1}{c|}{0.9448} & 0.9407
             \end{tabular}
         \end{table}
 
-        The plots of the loss and validation accuracy of the model with 3 hidden layers are as follows,
+        The plots of the loss and validation accuracy of the model with 2 hidden layers are as follows,
 
         \begin{figure}[H]
             \centering
-            \includegraphics[scale = 0.75]{feedforward-training-loss-0.01-100-3-0.3-relu-sgd-16.pdf}
+            \includegraphics[scale = 0.75]{feedforward-training-loss-0.01-100-2-0.3-relu-sgd-16.pdf}
         \end{figure}
     
         \begin{figure}[H]
             \centering
-            \includegraphics[scale = 0.75]{feedforward-validation-accuracy-0.01-100-3-0.3-relu-sgd-16.pdf}
+            \includegraphics[scale = 0.75]{feedforward-validation-accuracy-0.01-100-2-0.3-relu-sgd-16.pdf}
         \end{figure}
 
     \end{questions}
@@ -321,7 +321,7 @@
         \[
             \hat{y} = \vb*{v}^T \vb*{h}
         \]
-        the linearity of $\vb*{h}$ in the feature transformation $\vb*{\phi}(\vb*{x})$ proven above leads to following equality:
+        the linearity of $\vb*{h}$ in the feature transformation $\vb*{\phi}(\vb*{x})$ proven above leads to the following equality:
         \[
             \hat{y} = \vb*{v}^T \vb*{A}_{\Theta} \vb*{\phi}(\vb*{x}) 
                     = (\vb*{A}_{\Theta}^T \vb*{v})^T \vb*{\phi}(\vb*{x}) 
@@ -353,12 +353,12 @@
         \end{align*}
         and 
         \begin{align*}
-            \vb*{c}^T \vb*{\phi(x)} &= \sum_{i = 1}^{\frac{D(D + 1)}{2}} c_i \phi_i(x) = \sum_{i = 1}^{D} c_{(i - 1)D + i - \frac{(i - 1)i}{2}}\; x_i^2 + \sum_{i = 1}^{D}\sum_{j = i + 1}^{D} c_{(i - 1)D + j - \frac{(j - 1)j}{2}}\;(2 x_i x_j) \\
+            \vb*{c}^T \vb*{\phi(x)} &= \sum_{i = 1}^{\frac{D(D + 1)}{2}} c_i \phi_i(x) = \sum_{i = 1}^{D} c_{(i - 1)D + i - \frac{(i - 1)i}{2}}\; x_i^2 + \sum_{i = 1}^{D}\sum_{j = i + 1}^{D} c_{(i - 1)D + j - \frac{(i - 1)i}{2}}\;(2 x_i x_j) \\
             &= \vb*{x}^T \mathcal{M}(\vb*{c}) \vb*{x}
         \end{align*}
         where $\mathcal{M}(\vb*{c}) \in \mathbb{R}^{D \times D}$ is a symmetric matrix obtained from $\vb*{c}$ such that:
         \begin{itemize}
-            \item[--] the diagonal and the part above the diagonal of the matrix $\mathcal{M}(\vb*{c})$ is filled row-wise with the elements of vector $\vb*{c}$, i.e.:
+            \item[--] the diagonal and the part above the diagonal of the matrix $\mathcal{M}(\vb*{c})$ are filled row-wise with the elements of vector $\vb*{c}$, i.e.:
             \[
                 \mathcal{M}(\vb*{c}) = 
                 \begin{bmatrix}
@@ -404,15 +404,11 @@
         \end{itemize}
         We then have that:
         \[
-            \vb*{c}^T_{\Theta} \vb*{\phi(x)} = \sum_{i = 1}^{K} \vb*{v}_i (\vb*{w}_i^T\vb*{x})^2 =  \sum_{i = 1}^{D} \lambda_i (\vb*{q}_i^T\vb*{x})^2 = (\vb*{Q}^T \vb*{x})^T \vb*{\Lambda} (\vb*{Q}^T \vb*{x}) = \vb*{x}^T \vb*{Q} \vb*{\Lambda}\vb*{Q}^T \vb*{x} = \vb*{c}^T \vb*{\phi(x)}
+            \vb*{c}^T_{\Theta} \vb*{\phi(x)} = \sum_{i = 1}^{K} v_i (\vb*{w}_i^T\vb*{x})^2 =  \sum_{i = 1}^{D} \lambda_i (\vb*{q}_i^T\vb*{x})^2 = (\vb*{Q}^T \vb*{x})^T \vb*{\Lambda} (\vb*{Q}^T \vb*{x}) = \vb*{x}^T \vb*{Q} \vb*{\Lambda}\vb*{Q}^T \vb*{x} = \vb*{c}^T \vb*{\phi(x)}
         \]
-        and, by Lemma 1, we prove that the previous choice of $\vb*{W}$ and $\vb*{v}$ originate a vector $\vb*{c}_{\Theta}$ such that $\vb*{c}_{\Theta} = \vb*{c}$. Furthermore, we have proven that the sets of classifiers $\mathcal{C}_1 = \{\vb*{c}_{\Theta}^T\phi(x) : \Theta = (\vb*{W}, \vb*{v}) \in \mathbb{R}^{K \times D \times K}\}$ and $\mathcal{C}_2 = \{\vb*{c}^T\phi(x) : \vb*{c} \in \mathbb{R}^{\frac{D(D + 1)}{2}}\}$ are exactly the same, and so the original neural network reduces to a \textbf{linear model} in terms of $\vb*{c}_{\Theta}$.
+        and, by Lemma 1, we prove that the previous choice of $\vb*{W}$ and $\vb*{v}$ originates a vector $\vb*{c}_{\Theta}$ such that $\vb*{c}_{\Theta} = \vb*{c}$. Furthermore, we have proven that the sets of classifiers $\mathcal{C}_1 = \{\vb*{c}_{\Theta}^T\vb*{\phi(x)} : \Theta = (\vb*{W}, \vb*{v}) \in \mathbb{R}^{K \times D \times K}\}$ and $\mathcal{C}_2 = \{\vb*{c}^T\vb*{\phi(x)} : \vb*{c} \in \mathbb{R}^{\frac{D(D + 1)}{2}}\}$ are exactly the same, and so the original neural network reduces to a \textbf{linear model} in terms of $\vb*{c}_{\Theta}$.
         \end{proof}
-        %In fact, we can relax the requirement $K \ge D$ to be $K \ge D - N$, where $N$ is the dimension of the nullspace of $\mathcal{M}(\vb*{c})$. Since $\mathcal{M}(\vb*{c})$ is symmetric and thus diagonalizable, the set of indices $\mathcal{I}$ such that the eigenvectors $\{\vb*{q}_i : i \in \mathcal{I}\}$ are not associated with eigenvalue zero has $D - N$ elements. As such:
-        %\[
-        %    \vb*{c}^T \vb*{\phi(x)} = \sum_{i = 1}^{D} \lambda_i (\vb*{q}_i^T\vb*{x})^2 = \sum_{i \in \mathcal{I}} \lambda_i (\vb*{q}_i^T\vb*{x})^2
-        %\]
-        %and thus we can take $\vb*{W}$ to be equal to the concatenation of the matrix $\vb*{\tilde{Q}}^T$ with a matrix of $(K - (D - N)) \times D$ zeros (where $\vb*{\tilde{Q}} \in \mathbb{R}^{D \times (D - N)}$ and each column vector $\vb*{\tilde{q}}_k$ is equal to $\vb*{q}_{i_k}$, where $1 \le k \le D - N$ and $i_k$ is the $k$-th index present in $\mathcal{I}$). Following the previously made argument, we would obtain again a vector $\vb*{c}_{\Theta}$ equal to $\vb*{c}$. \\
+ 
         Consider now the case when $K < D$. Then, the nullspace of $\vb*{W}$ has at least dimension $D - K \ge 1$, and thus there is some \textbf{non-null} vector $\vb*{x^*}$ such that $\vb*{Wx^*} = 0$. Now, choose $\vb*{c}$ to be a vector such that $\mathcal{M}(\vb*{c}) = \vb*{I}_{D \times D}$ (i.e., the $D \times D$ identity matrix). We then have:
         \[
             \vb*{c}^T_{\Theta} \vb*{\phi(x^*)}
@@ -431,7 +427,7 @@
         \]
         where $\vb*{y} = (y_1, y_2, \dots, y_n)$. As such, the minimization of the squared lost corresponds to a linear least squares problem, which in this case has a unique solution $\vb*{c}^*_{\Theta}$ that is found simply by setting the gradient to zero:
         \begin{align*}
-            \nabla_{\vb*{c}_{\Theta}} L(\vb*{c}^T_{\Theta}; \mathcal{D}) = \vb*{0} &\Leftrightarrow \nabla_{\vb*{c}_{\Theta}}(\vb*{X}\vb*{c}_{\Theta}) \nabla_{\vb*{z}}(\|\vb*{z}\|_2^2) \rvert_{\vb*{z} = \vb*{X}\vb*{c}_{\Theta} - \vb*{y}} = \vb*{0} \Leftrightarrow 2\vb*{X}^T(\vb*{X}\vb*{c}_{\Theta} - \vb*{y}) = \vb*{0} \\
+            \nabla_{\vb*{c}_{\Theta}} L(\vb*{c}^T_{\Theta}; \mathcal{D}) = \vb*{0} &\Leftrightarrow \nabla_{\vb*{c}_{\Theta}}(\vb*{X}\vb*{c}_{\Theta}) \nabla_{\vb*{z}}\left(\frac{1}{2}\|\vb*{z}\|_2^2\right) \rvert_{\vb*{z} = \vb*{X}\vb*{c}_{\Theta} - \vb*{y}} = \vb*{0} \Leftrightarrow \vb*{X}^T(\vb*{X}\vb*{c}_{\Theta} - \vb*{y}) = \vb*{0} \\
             &\Rightarrow \vb*{c}^*_{\Theta} = (\vb*{X}^T\vb*{X})^{-1}\vb*{X}^T\vb*{y}
         \end{align*}
         To prove the existence of $ (\vb*{X}^T\vb*{X})^{-1}$, note that the dimensions of the nullspaces of and $\vb*{X}$ and $\vb*{X}^T\vb*{X}$ are equal, since, for every $\vb*{x} \in \mathbb{R}^{\frac{D(D + 1)}{2}}$:
@@ -440,7 +436,7 @@
         \]
         and 
         \[
-            \vb*{X}^T\vb*{X}\vb*{x} = \vb*{0} \Rightarrow x^T\vb*{X}^T\vb*{X}\vb*{x} = \vb*{0} 
+            \vb*{X}^T\vb*{X}\vb*{x} = \vb*{0} \Rightarrow \vb*{x}^T\vb*{X}^T\vb*{X}\vb*{x} = \vb*{0} 
             \Rightarrow \|\vb*{X}\vb*{x}\|_2^2 = \vb*{0} \Rightarrow \vb*{X}\vb*{x} = \vb*{0}
         \]
         Since $N > \frac{D(D + 1)}{2}$ and $\vb*{X}$ has full column rank ($\frac{D(D + 1)}{2}$), its nullspace has dimension $0$. Hence, $\vb*{X}^T\vb*{X}$ is a $\frac{D(D + 1)}{2} \times \frac{D(D + 1)}{2}$ square matrix with rank $\frac{D(D + 1)}{2} - 0 = \frac{D(D + 1)}{2}$, and so it is invertible. \par

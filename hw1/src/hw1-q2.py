@@ -35,7 +35,6 @@ class LogisticRegression(nn.Module):
         # In a pytorch module, the declarations of layers needs to come after
         # the super __init__ line, otherwise the magic doesn't work.
         self.linear = nn.Linear(n_features, n_classes)
-        self.activation = nn.Sigmoid()
 
 
     def forward(self, x, **kwargs):
@@ -52,8 +51,7 @@ class LogisticRegression(nn.Module):
         forward pass -- this is enough for it to figure out how to do the
         backward pass.
         """
-        logits = self.linear(x)
-        ret = self.activation(logits)
+        ret = self.linear(x)
         return ret
 
 # Q2.2
@@ -74,13 +72,13 @@ class FeedforwardNetwork(nn.Module):
         includes modules for several activation functions and dropout as well.
         """
         super(FeedforwardNetwork, self).__init__()
-        #Input layer
+
         self.in_layer = nn.Linear(n_features, hidden_size) #(10 x hidden_size)
 
-        #List to allow multiple hidden layers
+        # List to allow various hidden layers
         self.hidden_layers = nn.ModuleList()
-        for _ in (range(layers) - 1): #a single layer feedforward NN doesnt have hidden layers
-            self.hidden_layers.append(nn.Linear(hidden_size, hidden_size)) #hidden_size stays constant
+        for _ in range(layers - 1): 
+            self.hidden_layers.append(nn.Linear(hidden_size, hidden_size)) 
         
         #Dropout Regularization Layer
         self.dropout = nn.Dropout(p=dropout)
@@ -89,7 +87,6 @@ class FeedforwardNetwork(nn.Module):
         self.out_layer = nn.Linear(hidden_size, n_classes)
 
         #Activation Function 
-
         if activation_type == "relu":
             self.activation = nn.ReLU()
         elif activation_type == "tanh":
@@ -105,14 +102,13 @@ class FeedforwardNetwork(nn.Module):
         the output logits from x. This will include using various hidden
         layers, pointwise nonlinear functions, and dropout.
         """
-        #Input Layer Activation
+
         x = self.activation(self.in_layer(x))
         x =self.dropout(x)
         
         #Hidden Layers
         for layer in self.hidden_layers:
             x = self.activation(layer(x))
-            #Dropout
             x = self.dropout(x)
 
         #Output Activation
