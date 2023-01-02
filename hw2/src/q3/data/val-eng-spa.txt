@@ -1,0 +1,1000 @@
+tom is a miner .	tom es minero .	42
+you look strong .	te ves fuerte .	42
+you know everyone .	conoces a todos .	42
+please take one .	coge una .	42
+i ll be free .	sere libre .	42
+what is he doing ?	 que hace el ?	42
+she looks happy .	parece feliz .	42
+a lion is strong .	el leon es fuerte .	42
+i whistled .	silbe .	42
+she isn t young .	ella no es joven .	42
+we ve lost them .	los perdimos .	42
+i could walk .	podria caminar .	42
+we close at .	cerramos a las .	42
+red is better .	el rojo es mejor .	42
+i feel my age .	yo siento mi edad .	42
+is tom a polyglot ?	 tom es poliglota ?	42
+they re married .	estan casados .	42
+i use this .	uso esto .	42
+i ve done nothing .	no he hecho nada .	42
+hi tom .	 hola tom !	42
+do you eat meat ?	 comes carne ?	42
+we re closed .	estamos cerrados .	42
+it s an eyesore .	es un engendro .	42
+did you help ?	 ayudabas ?	42
+i m barefoot .	estoy descalzo .	42
+no one knew it .	nadie lo sabia .	42
+are you forgetful ?	 eres olvidadizo ?	42
+can it be fixed ?	 puede arreglarse ?	42
+tom woke me up .	tom me desperto .	42
+they look happy .	parecen felices .	42
+don t move .	no te muevas .	42
+it s not that bad .	no es tan malo .	42
+translate it .	traducelo .	42
+be ruthless .	se despiadado .	42
+i trusted him .	yo confiaba en el .	42
+do you eat meat ?	 comes carne ?	42
+we ve eaten .	hemos comido .	42
+which one is mine ?	 cual es el mio ?	42
+tom moved closer .	tom se acerco .	42
+this is boring .	esto es aburrido .	42
+give me a hug .	dame un abrazo .	42
+you re not stupid .	no eres estupida .	42
+go downstairs .	ve abajo .	42
+they re ready .	estan listos .	42
+i want to see tom .	quiero ver a tom .	42
+she types well .	ella teclea bien .	42
+go on ahead .	ve por delante .	42
+attack !	 al ataque !	42
+tom cooks well .	tom cocina bien .	42
+i need your help .	necesito tu ayuda .	42
+is it dangerous ?	 es peligroso ?	42
+where will you go ?	 adonde iras ?	42
+they re spies .	son espias .	42
+did i wake you ?	 te he despertado ?	42
+it s ridiculous .	es ridiculo .	42
+you are hilarious .	eres gracioso .	42
+what s the rule ?	 cual es la norma ?	42
+i ache all over .	me duele todo .	42
+tom cared .	tom se preocupo .	42
+i m bilingual .	soy bilingue .	42
+don t jump !	 no salteis !	42
+we went to gifu .	fuimos a gifu .	42
+i hate to iron .	odio planchar .	42
+tom is canadian .	tom es canadiense .	42
+are you bored ?	 te aburres ?	42
+let him in .	dejalo entrar .	42
+they did it .	lo lograron .	42
+come on hurry up .	vamos aprisa .	42
+keep running .	sigan corriendo .	42
+how do i use this ?	 como uso esto ?	42
+are you looking ?	 estais mirando ?	42
+she is beautiful .	es guapa .	42
+let me have a try .	dejame probar .	42
+he gave up .	lo dejo .	42
+i want your love .	quiero tu amor .	42
+i ll sing .	cantare .	42
+i hate dancing .	detesto bailar .	42
+they are well off .	son ricos .	42
+we respect them .	las respetamos .	42
+who won today ?	 quien gano hoy ?	42
+i like them .	me gustan .	42
+are you drinking ?	 estais bebiendo ?	42
+i m first .	voy el primero .	42
+i got married .	yo me case .	42
+i m not your wife .	no soy tu esposa .	42
+she tried .	ella lo probo .	42
+loosen it .	aflojala .	42
+i m housesitting .	cuido la casa .	42
+can i come in ?	 puedo entrar ?	42
+you survived .	sobrevivieron .	42
+tom shot him .	tom le disparo .	42
+tom is amusing .	tom es divertido .	42
+who s here ?	 quien esta aqui ?	42
+nothing s working .	no funciona nada .	42
+i hate sundays .	odio los domingos .	42
+he is not stupid .	no es estupido .	42
+now i get it .	ahora lo entiendo .	42
+are you winning ?	 estas ganando ?	42
+i ll start soon .	enseguida empiezo .	42
+we ll come back .	volveremos .	42
+wow !	 orale !	42
+oh i m sorry .	oh lo siento .	42
+i like them all .	me gustan todos .	42
+stop here .	paraos aqui .	42
+did they say how ?	 dijeron como ?	42
+no one s injured .	estamos ilesos .	42
+this is a dog .	eso es un perro .	42
+tom was arrested .	tom fue arrestado .	42
+we saw something .	vimos alguna cosa .	42
+they hate tom .	ellos odian a tom .	42
+he is hated .	el es odiado .	42
+he made me sing .	el me hizo cantar .	42
+be attentive .	estar atento .	42
+i didn t buy them .	yo no las compre .	42
+were you watching ?	 estabas mirando ?	42
+go .	vaya .	42
+tom is my father .	tom es mi padre .	42
+they look happy .	se ven contentos .	42
+i m unemployed .	estoy desempleada .	42
+you know her .	usted la conoce .	42
+hold it .	sostengalo .	42
+tom is a brute .	tom es un bruto .	42
+i did my part .	yo hice mi parte .	42
+i have bad breath .	tengo mal aliento .	42
+tom seems mean .	tom parece tacano .	42
+do you work here ?	 trabaja aqui ?	42
+they retreated .	retrocedieron .	42
+that s very big .	ese es muy grande .	42
+it matters .	importa .	42
+i need water .	yo necesito agua .	42
+who s calling ?	 quien llama ?	42
+you may speak .	puedes hablar .	42
+i told a joke .	yo dije un chiste .	42
+the house is cold .	la casa esta fria .	42
+tell the truth .	decid la verdad .	42
+give them to me .	 damelos !	42
+he was standing .	el estaba de pie .	42
+be respectful .	sed respetuosos .	42
+they already knew .	ellos ya sabian .	42
+where is that ?	 donde esta eso ?	42
+do it right now .	hazlo ahora mismo .	42
+i speak french .	hablo frances .	42
+don t move !	 no os movais !	42
+i don t remember .	no me acuerdo .	42
+she loves us .	ella nos quiere .	42
+we ve arrived .	hemos llegado .	42
+i ll be back soon .	volvere luego .	42
+let s do it !	 hagamoslo !	42
+tom is my nephew .	tom es mi sobrino .	42
+i m thinking .	estoy meditando .	42
+it s worth it .	vale la pena .	42
+did you sign ?	 firmaste ?	42
+tom grinned .	tom sonrio .	42
+it s only monday .	solo es lunes .	42
+it s nice today .	hoy hace bueno .	42
+it was good fun .	fue muy divertido .	42
+tom recognized me .	tom me reconocio .	42
+sign here .	firme aqui .	42
+tom remembers you .	tom te recuerda .	42
+i m finished .	estoy acabado .	42
+can you see ?	 puedes ver ?	42
+she sued him .	ella le demando .	42
+that s private .	eso es privado .	42
+i can hardly see .	apenas puedo ver .	42
+i made these .	estos los hice yo .	42
+i ll be going .	me voy a ir .	42
+it just bugs me .	me molesta .	42
+it takes time .	toma tiempo .	42
+i need paint .	necesito pintura .	42
+look at the price .	mira el precio .	42
+watch my fingers .	mira mis dedos .	42
+what ve you done ?	 que habeis hecho ?	42
+they found this .	encontraron esto .	42
+he smells bad .	el huele mal .	42
+we re famished .	estamos famelicos .	42
+we saw it .	lo veiamos .	42
+don t hurt me !	 no me hagas dano !	42
+keep searching .	sigue buscando .	42
+you let tom down .	defraudaste a tom .	42
+you were asleep .	ustedes dormian .	42
+i hate ironing .	detesto planchar .	42
+this is food .	es comida .	42
+i ll pay for it .	pagare por ello .	42
+don t cry .	no llores .	42
+the river is wide .	el rio es amplio .	42
+you re insane .	estas loco .	42
+i like cooking .	me gusta cocinar .	42
+let s finish up .	terminemos .	42
+we re going .	nos vamos .	42
+how is it made ?	 como se hace ?	42
+i m thirteen .	tengo trece anos .	42
+what a shock !	 que susto !	42
+turn on the radio .	prende la radio .	42
+my pulse is slow .	mi pulso es debil .	42
+i only want tom .	solo quiero a tom .	42
+they both work .	ambos sirven .	42
+don t trust tom .	no confies en tom .	42
+pass the ketchup .	pasame el ketchup .	42
+it s done !	 ya esta !	42
+i was an idiot .	era una idiota .	42
+they want this .	quieren esto .	42
+knead the dough .	amasa la masa .	42
+teach me french .	ensename frances .	42
+i m not crazy .	no estoy loca .	42
+the well is dry .	el pozo esta seco .	42
+get me a towel .	traeme una toalla .	42
+i hate losing .	odio perder .	42
+it s almost six .	son casi las seis .	42
+wipe your nose .	sonate la nariz .	42
+you re sweet .	eres muy dulce .	42
+we re calm .	estamos calmados .	42
+you re the oldest .	eres el mayor .	42
+tom is old .	tomas esta viejo .	42
+i saw him .	le vi .	42
+i m an insomniac .	tengo insomnio .	42
+let me in please .	permitame entrar .	42
+that looks tacky .	eso parece vulgar .	42
+i hate fighting .	odio pelear .	42
+do you like tom ?	 te gusta tom ?	42
+is that yours ?	 es aquel tuyo ?	42
+take precautions .	ten cuidado .	42
+i called earlier .	llame antes .	42
+stay close .	mantente cerca .	42
+can i go outside ?	 puedo ir afuera ?	42
+take care !	 cuidate !	42
+i came for you .	vine por vosotros .	42
+you can go .	te puedes ir .	42
+i need this .	necesito esto .	42
+it was his fault .	fue culpa suya .	42
+am i qualified ?	 estoy calificado ?	42
+forget it !	 olvidalo !	42
+i envy tom .	envidio a tom .	42
+they lied to you .	te mintieron .	42
+let s shake hands .	demonos la mano .	42
+living isn t easy .	vivir no es facil .	42
+this is boring .	es aburrido .	42
+i know all that .	se todo eso .	42
+leave tomorrow .	sal manana .	42
+you look so pale .	te ves tan palido .	42
+anybody here ?	 hay alguien aqui ?	42
+you ll catch up .	tu le alcanzaras .	42
+does he live here ?	 vive aqui ?	42
+promise me now .	ahora prometemelo .	42
+tom is a student .	tom es estudiante .	42
+just take one .	coja solo una .	42
+that was bad .	eso fue malo .	42
+my pencil is red .	mi lapiz es rojo .	42
+you will survive .	sobreviviras .	42
+cook the rice .	cocina el arroz .	42
+i heard the bell .	oi la campana .	42
+he talks a lot .	el habla mucho .	42
+i played soccer .	jugaba al futbol .	42
+i try .	lo intento .	42
+you know people .	tu conoces gente .	42
+that s important .	eso es importante .	42
+i hear the drum .	oigo los tambores .	42
+when did it end ?	 cuando termino ?	42
+let s not hide it .	 no lo escondamos !	42
+i m an insomniac .	soy insomne .	42
+give them money .	dales dinero .	42
+i m alone .	estoy solo .	42
+it tasted sweet .	sabia dulce .	42
+i did it for tom .	lo hice por tom .	42
+it was fabulous .	era fabuloso .	42
+get in the boat .	subete al bote .	42
+tom s ugly .	tom es feo .	42
+can you show me ?	 puedes mostrarme ?	42
+we re here .	estamos aqui .	42
+i need to go back .	necesito regresar .	42
+you re back .	ya estas aqui .	42
+now i know why .	ahora se por que .	42
+i m not going .	yo no voy .	42
+we like it .	nos gusta .	42
+is it that late ?	 ya es tan tarde ?	42
+you re weak .	sois debiles .	42
+tom already left .	ya se fue tom .	42
+i hurt my foot .	me lastime el pie .	42
+we like tom .	queremos a tom .	42
+i can see tom .	puedo ver a tom .	42
+he has wine .	tiene vino .	42
+don t push it .	no lo empujes .	42
+tom is boring .	tom esta aburrido .	42
+put this on .	ponte esto .	42
+i loved her .	la amaba .	42
+you look upset .	pareces molesto .	42
+i need sugar .	necesito azucar .	42
+i ve got time .	tengo tiempo .	42
+have another .	tome otra .	42
+i see his house .	yo veo su casa .	42
+that s the one .	es ese .	42
+i want to win .	quiero ganar .	42
+i expect details .	espero detalles .	42
+tom did have fun .	tom se divirtio .	42
+you ll see it .	lo veras .	42
+wait for me guys .	esperadme chicos .	42
+i m so full .	estoy tan lleno .	42
+is that you ?	 eres tu ?	42
+let s step inside .	pasemos adentro .	42
+you re funny .	eres gracioso .	42
+i m home tom .	estoy en casa tom .	42
+you re not well .	no estas bien .	42
+we re joking .	estamos bromeando .	42
+do you live here ?	 vivis aqui ?	42
+get on in here .	ven aca .	42
+forget tom .	olvidese de tomas .	42
+is tom fun ?	 tom es divertido ?	42
+what did they eat ?	 que comieron ?	42
+you re conceited .	tu eres arrogante .	42
+tom is invited .	tom esta invitado .	42
+you know me .	tu me conoces .	42
+tom listens .	tom escucha .	42
+that s tom s .	eso es de tomas .	42
+i am years old .	tengo anos .	42
+i ve decided .	tome mi decision .	42
+go on home .	vayase a casa .	42
+he drank a little .	el bebio un poco .	42
+tom adores mary .	tom adora a mary .	42
+they re tired .	estan cansados .	42
+you re tough .	eres duro .	42
+you re decisive .	eres decidido .	42
+i got thirsty .	me dio sed .	42
+what did tom say ?	 que dijo tom ?	42
+what do you like ?	 que te gusta ?	42
+he is still here .	todavia esta aqui .	42
+i ll be going .	me voy a marchar .	42
+are you happy ?	 eres feliz ?	42
+i can t see you .	no puedo veros .	42
+are you envious ?	 tienes envidia ?	42
+move over .	hazte a un lado .	42
+they re new .	son nuevos .	42
+i like your car .	me gusta tu coche .	42
+i hate that color .	odio este color .	42
+say it in english .	diganlo en ingles .	42
+i opened one eye .	abri un ojo .	42
+you must hurry up .	debes apurarte .	42
+i have a problem .	tengo un problema .	42
+he was at home .	el estaba en casa .	42
+jump .	salte .	42
+that s personal .	eso es personal .	42
+you must go home .	debes irte a casa .	42
+make it happen .	haz que suceda .	42
+take a rest .	reposate .	42
+i m so tired .	estoy muy cansado .	42
+it s dark outside .	esta oscuro fuera .	42
+let me leave !	 dejame salir !	42
+was it good ?	 estuvo bueno ?	42
+i m not sure .	no estoy seguro .	42
+i hate my sister .	odio a mi hermana .	42
+calm down .	 calmense !	42
+tom is an adult .	tom es un adulto .	42
+i don t have any .	no tengo ninguno .	42
+stop talking .	callate .	42
+do you understand ?	 entendeis ?	42
+they re broken .	estan estropeados .	42
+you lost .	perdieron ustedes .	42
+we saw it .	la vimos .	42
+stop !	 pare !	42
+keep that in mind .	tenedlo presente .	42
+make it smaller .	hazlo mas chico .	42
+what causes that ?	 que causa eso ?	42
+is that it ?	 eso es todo ?	42
+i became rich .	me volvi rico .	42
+you re modest .	eres modesto .	42
+i don t like this .	no me gusta esto .	42
+it s dirt cheap .	esta botado .	42
+go meet tom .	ve a ver a tom .	42
+mary is weird .	maria es rara .	42
+we re moving .	nos cambiamos .	42
+i m doing great .	me va genial .	42
+tom cried .	tom lloro .	42
+tom waited .	tomas espero .	42
+that s very big .	esa es muy grande .	42
+i m very happy .	soy muy feliz .	42
+tom isn t a kid .	tom no es un nino .	42
+did you like it ?	 os gusto ?	42
+mary is a widow .	mary es viuda .	42
+he lost face .	el quedo mal .	42
+i want this bag .	quiero esta bolsa .	42
+this is japan .	esto es japon .	42
+i like talking .	me gusta hablar .	42
+are you sure ?	 estan seguros ?	42
+no problem !	 sin problemas !	42
+how does he do it ?	 como lo hace ?	42
+he eats a lot .	el come mucho .	42
+i ll go to boston .	ire a boston .	42
+i ll set you free .	te liberare .	42
+i want to confess .	quiero confesar .	42
+i can t sleep .	no puedo dormir .	42
+he s old and ugly .	el es viejo y feo .	42
+i want a lawyer .	quiero un abogado .	42
+help me out .	ayudame a salir .	42
+i sat up .	me sente .	42
+i laughed .	me rei .	42
+i love this game .	adoro este juego .	42
+there s one more .	hay uno mas .	42
+you re the leader .	eres el lider .	42
+do you know her ?	 la conocen ?	42
+did tom win ?	 gano tom ?	42
+i m bringing wine .	traigo vino .	42
+you re like tom .	eres como tom .	42
+it was very dark .	estaba muy oscuro .	42
+ok listen up .	bueno escucha .	42
+i saw tom leave .	vi irse a tom .	42
+it was surprising .	fue sorprendente .	42
+vote for tom .	voten por tom .	42
+you re very clean .	esta muy limpio .	42
+we won t do it .	no lo haremos .	42
+he found it .	el lo encontro .	42
+don t look down .	no mires abajo .	42
+stay calm .	mantene la calma .	42
+they are pilots .	ellos son pilotos .	42
+will you do it ?	 lo haras ?	42
+eat everything .	comete todo .	42
+i ll wait .	aguardare .	42
+i can t cook .	no se cocinar .	42
+is that yours ?	 es eso tuyo ?	42
+can you sleep ?	 puedes dormir ?	42
+i ll be sad .	estare triste .	42
+i still hate you .	todavia te odio .	42
+she s beautiful .	es guapa .	42
+please calm down .	por favor calmaos .	42
+come right in .	entra aqui .	42
+now it s my turn .	ahora es mi turno .	42
+stop following me .	deja de seguirme .	42
+play it again .	tocalo otra vez .	42
+i like chicken .	me gusta el pollo .	42
+tom speaks fast .	tom habla rapido .	42
+stop reading .	deja de leer .	42
+start singing .	empiece a cantar .	42
+i m an engineer .	soy un ingeniero .	42
+these are real .	estos son reales .	42
+keep looking .	sigue mirando .	42
+tell me about it !	 dimelo a mi !	42
+i ll call them .	los llamare .	42
+have you eaten ?	 comiste ?	42
+i don t eat .	no como .	42
+call me .	llamadme .	42
+that s correct .	eso es correcto .	42
+don t disturb me !	no me molestes .	42
+i will stop you .	yo te detendre .	42
+he is tall .	el es alto .	42
+i made it myself .	lo hice yo mismo .	42
+i know them .	los conozco .	42
+they hated tom .	odiaban a tom .	42
+tom winked .	tom guino el ojo .	42
+read it again .	leelo nuevamente .	42
+she called him .	ella lo llamo .	42
+i get up at .	me levanto a las .	42
+i am very tall .	soy muy alto .	42
+don t smile .	no sonrias .	42
+here use my key .	toma usa mi llave .	42
+you may return .	quiza vuelvan .	42
+visit us tomorrow .	 visitenos manana !	42
+let him enter .	dejale pasar .	42
+i respect tom .	respeto a tom .	42
+we have wine .	tenemos vino .	42
+we ll be happy .	estaremos felices .	42
+we ll fail .	fracasaremos .	42
+did i hurt you ?	 te lastime ?	42
+give it to me .	damelo .	42
+aren t you sleepy ?	 no estas cansada ?	42
+do you have a car ?	 tienes carro ?	42
+tom will speak .	tom hablara .	42
+i can run .	se correr .	42
+they are pretty .	son lindos .	42
+here it is .	aqui esta .	42
+be brief .	sea breve .	42
+leave it .	 dejalo !	42
+what s she doing ?	 que hace ?	42
+they know you .	te conocen .	42
+tom is an atheist .	tom es ateo .	42
+that s better .	eso esta mejor .	42
+i found you .	ya te encontre .	42
+will you help me ?	 me ayudaras ?	42
+do i know you ?	 le conozco ?	42
+you are dreaming .	estas sonando .	42
+they re jealous .	estan celosos .	42
+you cheated .	hicisteis trampa .	42
+tom isn t heavy .	tom no es pesado .	42
+tom is hurt .	tom esta herido .	42
+what a surprise !	 que sorpresa !	42
+tom misled mary .	tom engano a mary .	42
+he went fishing .	el fue a pescar .	42
+what does it mean ?	 que significa ?	42
+i m unlucky .	tengo mala suerte .	42
+you look pleased .	pareces contento .	42
+i hate rats .	odio a las ratas .	42
+i dislike coffee .	odio el cafe .	42
+she is his friend .	ella es su amiga .	42
+come if you can .	ven si puedes .	42
+i always fail .	siempre fracaso .	42
+i liked them all .	me gustaban todos .	42
+please sit down .	sentate por favor .	42
+that can t last .	no va a durar .	42
+i m cool .	estoy tranquilo .	42
+answer me .	respondanme .	42
+drink something .	bebe algo .	42
+wait for me .	esperame .	42
+we sell fruit .	vendemos fruta .	42
+i sat back down .	volvi a sentarme .	42
+i m the boss .	soy el jefe .	42
+hold it .	sostengala .	42
+tom never arrived .	tom nunca llego .	42
+what a hassle !	 que lio !	42
+you re through .	terminaste .	42
+this is a hotel .	esto es un hotel .	42
+i like you .	me gustais .	42
+he scolded her .	la increpo .	42
+are you lost ?	 te has perdido ?	42
+my arm hurts .	me duele el brazo .	42
+she died .	ella murio .	42
+i m almost ready .	enseguida acabo .	42
+it s time to go .	es tiempo de irse .	42
+tom stood .	tom se quedo .	42
+wait one second .	espera un segundo .	42
+we want to leave .	queremos irnos .	42
+the two smiled .	ambos sonrieron .	42
+don t come in .	no entrar .	42
+let s go fishing .	vayamos a pescar .	42
+tom will try .	tom lo intentara .	42
+i ll attend .	estare alli .	42
+i don t smoke .	no fumo .	42
+are you with tom ?	 estas con tom ?	42
+i m from the city .	soy de la ciudad .	42
+eat more fruit .	come mas fruta .	42
+is this milk ?	 esto es leche ?	42
+i almost gave up .	casi cedo .	42
+i don t love her .	no la amo .	42
+open your mouth .	abre la boca .	42
+it s too late .	es muy tarde .	42
+good luck tom .	buena suerte tom .	42
+i m not happy .	yo no soy feliz .	42
+this is a pencil .	esto es un lapiz .	42
+i m almost ready .	estoy casi listo .	42
+it s not true .	no es verdad .	42
+that s broken .	eso no va .	42
+i felt alone .	me sentia solo .	42
+she trusts him .	ella confia en el .	42
+he s dieting .	el esta a dieta .	42
+i m a writer .	soy escritor .	42
+put it on .	poneoslo .	42
+look back .	mirad atras .	42
+i didn t pick it .	yo no lo escogi .	42
+tom stole a car .	tom robo un coche .	42
+we have money .	tenemos dinero .	42
+i want mine .	quiero el mio .	42
+i can t stand him .	no le aguanto .	42
+keep singing .	continua cantando .	42
+got it ?	 entendiste ?	42
+is it you ?	 eres tu ?	42
+i can t say .	no puedo decir .	42
+is that pure gold ?	 es oro puro ?	42
+this bucket leaks .	este balde pierde .	42
+this was my fault .	fue culpa mia .	42
+i feel better .	me siento mejor .	42
+i ll stay close .	me quedare cerca .	42
+i felt vindicated .	me senti aliviado .	42
+be a good girl .	portate bien .	42
+be sensible .	sed razonables .	42
+she isn t poor .	ella no es pobre .	42
+do you know me ?	 me conoces ?	42
+is tom there ?	 esta ahi tom ?	42
+that s new .	es nuevo .	42
+we ll visit you .	te visitaremos .	42
+take it easy !	 relajate !	42
+say cheese .	decid guisqui .	42
+are you tired ?	 estais cansadas ?	42
+get serious !	 ponte serio !	42
+i finished it .	yo lo termine .	42
+we ve got them .	los tenemos .	42
+wish me luck .	 deseenme suerte !	42
+just let me go .	dejame irme .	42
+it s interesting .	es interesante .	42
+start singing .	comenzad a cantar .	42
+it rained heavily .	llovio fuerte .	42
+you can t stop me .	no puedes pararme .	42
+we re serious .	somos serios .	42
+just take one .	coged solo uno .	42
+hello everyone !	 hola a todos !	42
+i want a book .	quiero un libro .	42
+when does it end ?	 cuando termina ?	42
+did you have fun ?	 te divertiste ?	42
+let me do it .	deja que lo haga .	42
+they re yours tom .	son tuyos tom .	42
+leave him alone .	dejadle solo .	42
+we have two kids .	tenemos dos hijos .	42
+tom is dead .	tom ha muerto .	42
+i would leave .	saldria .	42
+what was that ?	 que fue eso ?	42
+it s raining hard .	llueve mucho .	42
+this is pathetic .	es patetico .	42
+i resign .	renuncio .	42
+i won t go away .	no me voy a ir .	42
+you will eat .	comeras .	42
+tom is speaking .	tom esta hablando .	42
+what do you have ?	 que tiene ?	42
+catch him .	capturenlo .	42
+you ve won .	tu ganaste .	42
+it s not funny .	no es divertido .	42
+he got caught .	le cogieron .	42
+i found my book .	encontre mi libro .	42
+are we idiots ?	 somos tontos ?	42
+i ll be discreet .	sere discreto .	42
+we re frightened .	estamos asustados .	42
+were you alone ?	 estabas solo ?	42
+he s a journalist .	es un periodista .	42
+we re gardeners .	somos jardineros .	42
+i m awake .	estoy despierto .	42
+you look unsure .	pareces inseguro .	42
+what about me ?	 que hay de mi ?	42
+this is yours .	esto es vuestro .	42
+i gave my word .	di mi palabra .	42
+i m not fat .	 no estoy gorda !	42
+it s irrelevant .	es irrelevante .	42
+i want soup .	quiero sopa .	42
+stay at home .	quedense en casa .	42
+what s the matter ?	 que pasa ?	42
+let tom speak .	deja hablar a tom .	42
+tom is easygoing .	tom es relajado .	42
+try the cake .	prueba la tarta .	42
+someday i ll know .	un dia lo sabre .	42
+put your gun down .	baja tu arma .	42
+i cut myself .	me he cortado .	42
+is that healthy ?	 eso es saludable ?	42
+step inside .	entra .	42
+they re talking .	estan charlando .	42
+i read everything .	lo lei todo .	42
+is this yours ?	 esto es tuyo ?	42
+stop ! thief !	 alto ! ladron !	42
+stand back !	 retrocede !	42
+that sounds right .	eso suena bien .	42
+you have no proof .	no tenes pruebas .	42
+come together .	vengan ambos .	42
+he s your father .	el es su padre .	42
+you re gorgeous .	eres guapa .	42
+she s a model .	ella es modelo .	42
+were you alone ?	 estabas sola ?	42
+what causes that ?	 que causa esto ?	42
+are you hot ?	 teneis calor ?	42
+it rained heavily .	ha llovido mucho .	42
+it isn t new .	no es nuevo .	42
+they re worried .	estan preocupados .	42
+what do you want ?	 que queres ?	42
+am i wrong ?	 me equivoco ?	42
+are we safe ?	 estamos a salvo ?	42
+he turned around .	el se volteo .	42
+i m not well .	no estoy bien .	42
+i love boston .	yo amo boston .	42
+you betrayed us .	nos enganaste .	42
+tom likes you .	a tom le gustas .	42
+i kind of like it .	me gusta creo .	42
+the train stopped .	se paro el tren .	42
+did you see tom ?	 viste a tom ?	42
+plug up that leak .	tapa esa gotera .	42
+you can help .	puedes ayudar .	42
+you may go .	podes irte .	42
+i got a letter .	recibi una carta .	42
+stay at home .	quedese en casa .	42
+please sit still .	sientate recto .	42
+i m not insane .	no estoy loco .	42
+is tom here ?	 esta aqui tom ?	42
+who doesn t know ?	 quien no lo sabe ?	42
+don t do it .	 no lo hagas !	42
+that s all wrong .	eso esta todo mal .	42
+it ll get worse .	empeorara .	42
+calm down .	baja un cambio .	42
+i m desperate .	estoy desesperado .	42
+i ll look it up .	lo buscare .	42
+yes of course .	claro que si .	42
+what happened ?	 que ocurrio ?	42
+are you a student ?	 eres estudiante ?	42
+he just arrived .	acaba de llegar .	42
+you are important .	eres importante .	42
+i hope i win .	espero ganar .	42
+i do believe you .	te creo de verdad .	42
+what about today ?	 que tal hoy ?	42
+i could kill you .	yo podria matarlo .	42
+he has guts .	el tiene agallas .	42
+i turned right .	gire a la derecha .	42
+comb your hair .	peinate .	42
+i went to the zoo .	fui al zoologico .	42
+tom was better .	tom estaba mejor .	42
+stop moving !	 quedate quieto !	42
+we re clean .	estamos limpios .	42
+he seems ill .	el se ve enfermo .	42
+that was stupid .	eso fue estupido .	42
+take these .	quedate con estos .	42
+i m lost .	estoy perdida .	42
+don t repeat that .	no repitas eso .	42
+you re like me .	eres como yo .	42
+can i hug you ?	 puedo abrazarte ?	42
+attack !	 ataque !	42
+this is for you .	esto es para ti .	42
+i didn t sing .	yo no cante .	42
+she despises him .	ella le desprecia .	42
+you d better go .	mejor vete .	42
+i have a pen .	tengo una pluma .	42
+tom was bald .	tom estaba calvo .	42
+the dog is theirs .	el perro es suyo .	42
+i m optimistic .	soy optimista .	42
+trust tom .	confia en tom .	42
+i appreciate you .	te tengo carino .	42
+tom ll speak .	tom hablara .	42
+what would happen ?	 que pasaria ?	42
+i will go on foot .	ire a pie .	42
+that won t happen .	eso no acontecera .	42
+what a collection !	 que coleccion !	42
+tom threatened us .	tom nos amenazo .	42
+it s night .	es de noche .	42
+tom won again .	tom gano otra vez .	42
+tom is a hoot .	tom es divertido .	42
+we knew this .	sabiamos esto .	42
+go on in .	entre .	42
+i fell down .	me cai .	42
+he smiled .	sonrio .	42
+he surrendered .	el se rindio .	42
+talk is cheap .	hablar es gratis .	42
+he did it again .	lo volvio a hacer .	42
+keep digging .	segui cavando .	42
+tom is relaxed .	tom esta relajado .	42
+i want mine .	yo quiero la mia .	42
+stop calling me .	deja de llamarme .	42
+i like my house .	me gusta mi casa .	42
+listen all of you .	escuchad todos .	42
+i m poor .	soy pobre .	42
+tom is a janitor .	tom es conserje .	42
+is tom asleep ?	 tom esta dormido ?	42
+i have gout .	tengo gota .	42
+you can t walk .	no puedes andar .	42
+get the book .	recoge el libro .	42
+i moved .	me he trasladado .	42
+everyone wins .	todos ganan .	42
+you re crazy .	estas loco .	42
+you ve done it !	 lo has hecho !	42
+tom is single .	tom es soltero .	42
+tom was framed .	tom fue enmarcado .	42
+tom got tired .	tom se canso .	42
+tom isn t naive .	tom no es ingenuo .	42
+enjoy your meal .	que aproveche .	42
+i see a star .	veo una estrella .	42
+she s unconscious .	esta inconsciente .	42
+are you hiring ?	 esta contratando ?	42
+we re eating .	estamos comiendo .	42
+you smell .	apestas .	42
+i know you ll win .	se que ganaras .	42
+i gave you a book .	te di un libro .	42
+read another book .	lee otro libro .	42
+i like your house .	me gusta tu casa .	42
+it was my dream .	era mi sueno .	42
+are we finished ?	 terminamos ?	42
+let s turn back .	volvamos .	42
+please calm down .	calmate por favor .	42
+i m bushed .	estoy agotado .	42
+you re ugly .	sos feo .	42
+what a tragedy !	 que tragedia !	42
+where did you go ?	 adonde fuiste ?	42
+he terrified her .	el la aterroriza .	42
+it s not weird .	no es raro .	42
+who was that ?	 quien era ese ?	42
+i bought a camera .	compre una camara .	42
+let me have a try .	dejame probarlo .	42
+she s hot .	ella es candente .	42
+i like you .	me agradas .	42
+i played tennis .	yo jugue al tenis .	42
+you re dying .	te estas muriendo .	42
+it won t work .	no servira .	42
+don t respond .	no respondas .	42
+you ll see .	ya veras .	42
+you re great .	eres estupendo .	42
+do you want these ?	 quieren estos ?	42
+i fixed it .	lo arregle .	42
+they re free .	son libres .	42
+we ve done it .	lo hemos hecho .	42
+get on the bus .	subios al autobus .	42
+take a break .	descansen ahora .	42
+the boat capsized .	el bote zozobro .	42
+i can sing .	puedo cantar .	42
+begin .	empieza .	42
+tom walked .	tom camino .	42
+tom will go .	tom ira .	42
+leave it with me .	dejalo conmigo .	42
+i m an atheist .	soy ateo .	42
+they re fighting .	estan peleando .	42
+don t deny it .	no lo niegues .	42
+just take it slow .	hazlo poco a poco .	42
+i m running late .	se me hizo tarde .	42
+tom cooks for us .	tom nos cocina .	42
+i ve got cookies .	tengo galletas .	42
+what s new ?	 que me cuentas ?	42
+i want mine .	yo quiero el mio .	42
+we were friends .	eramos amigos .	42
+it s your book .	es tu libro .	42
+i m a student .	soy estudiante .	42
+is tom in a coma ?	 esta tom en coma ?	42
+come early .	venga temprano .	42
+look closely .	mira atentamente .	42
+who knows that ?	 quien lo sabe ?	42
+i understand now .	ahora lo entiendo .	42
+we had lunch .	almorzamos .	42
+what s up dude ?	 que pasa vale ?	42
+don t ask me .	no me preguntes .	42
+leave the key .	deje la llave .	42
+i m single .	soy soltero .	42
+i sold the car .	vendi el auto .	42
+he s demented .	el esta demente .	42
+i saw the sunrise .	vi el amanecer .	42
+you missed a lot .	te perdiste mucho .	42
+that s illegal .	eso es ilegal .	42
+it s fine .	esta perfecto .	42
+close the window .	cerra la ventana .	42
+am i normal ?	 soy normal ?	42
+they re insane .	estan muy mal .	42
+i could kiss you .	podria besarte .	42
+i was so lonesome .	estaba tan solo .	42
+i ll wait .	esperare .	42
+ask tom .	preguntale a tom .	42
+are you coming ?	 vendras ?	42
+it might rain .	puede que llueva .	42
+i ll risk it .	me arriesgare .	42
+that s hers .	es suyo .	42
+you re very sick .	estas muy enferma .	42
+i know her well .	la conozco bien .	42
+wait for me .	espera por mi .	42
+tom wants money .	tom quiere plata .	42
+he is a painter .	el es pintor .	42
+no one answered .	nadie respondio .	42
+there s no time .	no hay tiempo .	42
+my father is tall .	mi padre es alto .	42
+tom knows you .	tom te conoce .	42
+he is a scientist .	el es cientifico .	42
+he has no hat on .	no lleva sombrero .	42
+is tom injured ?	 tom esta herido ?	42
+we may lose .	podriamos perder .	42
+is that a riddle ?	 es un acertijo ?	42
+i didn t do it .	 yo no lo hice !	42
+what s next ?	 que sigue ?	42
+i did my job .	hice mi trabajo .	42
+that s hers .	es de ella .	42
+she got caught .	la cogieron .	42
+tom s trapped .	tom esta atrapado .	42
+leave everything .	dejalo todo .	42
+he made it .	el lo hizo .	42
+i owe you nothing .	no te debo nada .	42
+i ve found it .	lo he encontrado .	42
+it saved me .	me salvo .	42
+i like to sing .	me gusta cantar .	42
+that s life .	asi es la vida .	42
+why do you lie ?	 por que mientes ?	42
+this was my fault .	este fue mi error .	42
+time is money .	el tiempo es oro .	42
+tom s injured .	tom esta herido .	42
+are you deaf ?	 acaso eres sordo ?	42
+tom writes well .	tom escribe bien .	42
+this is all wrong .	esta todo mal .	42
+see you at about .	les veo hacia las .	42
+what are those ?	 que son esas ?	42
+fry me an egg .	frieme un huevo .	42
+tom has children .	tom tiene ninos .	42
+it went badly .	lo paso mal .	42
+i bought pencils .	compre lapices .	42
+you were brave .	fuiste valiente .	42
+shall i begin ?	 empiezo ?	42
+do come in .	pasa adentro .	42
+i m in my car .	estoy en mi coche .	42
+he came running .	el vino corriendo .	42
+you may go .	podeis marcharos .	42
+i made her happy .	la hice feliz .	42
+aren t you hot ?	 no tienes calor ?	42
+tom ate .	tom comio .	42
+are you a teacher ?	 eres profesor ?	42
+aren t you sleepy ?	 no tienes sueno ?	42
+come to my house .	venga a mi casa .	42
+i m feeling sick .	me siento enfermo .	42
+he respects me .	el me respeta .	42
+they ignored me .	me ignoraron .	42
+i m a twin .	soy gemelo .	42
+tom has sheep .	tom tiene ovejas .	42
+tom is polite .	tom es cortes .	42
+cut me some slack .	dame un respiro .	42
+we must go .	debemos irnos .	42
+keep away from me .	no te me acerques .	42
+get well soon !	 que te mejores !	42
+i m very fat .	estoy tan gordo .	42
+that might help .	eso podria ayudar .	42
+we could read .	podriamos leer .	42
+be calm .	mantente en calma .	42
+how are you today ?	 como estas hoy ?	42
+i can t log in .	no puedo ingresar .	42
+i helped tom .	ayude a tom .	42
+things change .	las cosas cambian .	42
+i hate working .	detesto trabajar .	42
+i took my revenge .	me vengue .	42
+tom is a referee .	tom es arbitro .	42
+let s fly kites .	volemos cometas .	42
+catch him .	atrapalo .	42
+who drove ?	 quien conducia ?	42
+kiss tom .	besa a tomas .	42
+she began to sing .	ella debuto .	42
+i ve done my part .	ya hice mi parte .	42
+i am outraged .	estoy indignado .	42
+just stand up .	solo levantate .	42
+he did not come .	no ha venido .	42
+who stayed ?	 quien se quedo ?	42
+i want to see him .	quiero verlo .	42
+listen up .	escucha .	42
+do you live here ?	 vive usted aqui ?	42
+i got wet .	me moje .	42
+he spoke .	el hablo .	42
+it is up to you .	depende de ti .	42
+this book is mine .	este libro es mio .	42
+i apologized .	me disculpe .	42
+beat the eggs .	bate los huevos .	42
+i m fasting .	estoy ayunando .	42
+what are they ?	 ellos que son ?	42
+tom is the best .	tom es el mejor .	42
+that s them .	ahi estan .	42
+leave tom to me .	dejame a tom .	42
+we should eat .	deberiamos comer .	42
+what s the hurry ?	 cual es la prisa ?	42
+it s not natural .	no es natural .	42
+does that hurt ?	 eso duele ?	42
+stay alert .	 mantente alerta !	42
+i m almost ready .	estoy casi lista .	42
+i left tom behind .	deje a tom atras .	42
+they didn t speak .	no hablaron .	42
+i need some paper .	necesito papel .	42
+have a snack .	come botana .	42
+it s over .	se acabo .	42
+were you busy ?	 estabas ocupado ?	42
+do you have cash ?	 tienes dinero ?	42
+i m nervous .	estoy nervioso .	42
+what was stolen ?	 que fue robado ?	42
+i don t buy it .	no me lo trago .	42
+you ll go far .	llegara lejos .	42
+i m not a hero .	no soy un heroe .	42
+tom is nervous .	tom esta nervioso .	42
+i love the sun .	me gusta el sol .	42
+examine this .	examina esto .	42
+it isn t broken .	no se quebro .	42
+no one saw that .	nadie vio eso .	42
+i need a car .	necesito un coche .	42
+she teased him .	ella le provocaba .	42
+i think it s tom .	creo que es tom .	42
+are you happy ?	 estas contento ?	42
+they did it .	lo hicieron .	42
+give it up .	dejalo .	42
+this is tom s .	eso es de tom .	42
+i m a pro .	soy un pro .	42
+i remember .	yo me acuerdo .	42
+tom was mean .	tom fue ruin .	42
+it was romantic .	fue romantico .	42
+you re not poor .	no eres pobre .	42
+they ll do it .	lo haran .	42
+i don t need tom .	no necesito a tom .	42
+you re on time .	estas a tiempo .	42
+tom looks rich .	tom parece rico .	42
+he wants an ipad .	el quiere un ipad .	42
+are you sick ?	 estas enfermo ?	42
+it was for tom .	era para tom .	42
+i will go .	ire .	42
+i see my ship .	veo mi barco .	42
+i ve called twice .	llame dos veces .	42
+i prayed .	rece .	42
+let s vote .	votemos .	42
+what is he up to ?	 que se trae el ?	42
+we re with you .	estamos con vos .	42
+now you try .	ahora prueba tu .	42
+this will cost .	eso va a costar .	42
+it was a joke .	era una broma .	42
+we made waffles .	hicimos waffles .	42
+it s tom s .	es de tom .	42
+stop crying .	no llores .	42
+don t laugh .	no te rias .	42
+choose carefully .	elige sabiamente .	42
+i don t trust you .	no confio en ti .	42
+how touching !	 que conmovedor !	42
+tom is loyal .	tom es fiel .	42
+what s the cause ?	 cual es la causa ?	42
+they were panting .	estaban jadeando .	42
+stop avoiding me .	deja de evitarme .	42
+what do you need ?	 que necesita ?	42
+you seem tired .	pareces cansada .	42
+we ll recover .	nos recuperaremos .	42
+bottoms up !	 hasta el fondo !	42
+it was your idea .	fue tu idea .	42
+i didn t buy that .	no compre eso .	42
+go with them .	anda con ellos .	42
+i talked .	hablaba .	42
+i changed .	cambie .	42
+is that your cat ?	 es aquel tu gato ?	42
+they re not mine .	no son mios .	42
+did you hear me ?	 me oiste ?	42
+we re the best .	somos los mejores .	42
+get away !	 vete de aqui !	42
+i m not lucky .	no tengo suerte .	42
+that s the law .	esta es una ley .	42
+mary had a boy .	mary tuvo un nino .	42
+do i look tired ?	 me veo cansado ?	42
+tom cut mary off .	tom corto a mary .	42
+what an ego !	 que ego !	42
