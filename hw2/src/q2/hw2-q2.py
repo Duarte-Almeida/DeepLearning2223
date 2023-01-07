@@ -12,6 +12,7 @@ import torch.nn.functional as F
 import torchvision
 from matplotlib import pyplot as plt
 import numpy as np
+import sys
 
 import utils
 
@@ -27,7 +28,28 @@ class CNN(nn.Module):
         """
         super(CNN, self).__init__()
         
-        # Implement me!
+        self.activation = nn.ReLU()
+        self.maxpool = nn.MaxPool2d(kernel_size=2, stride=2)
+        self.dropout = nn.Dropout(dropout_prob)
+        self.softmax = nn.LogSoftmax(dim=1)
+
+        # First Conv. Layer #Input size: 28x28 Output Size: 14x14
+        # Padding of 2 because k=5 and p = (k-1)//2
+        self.conv1 = nn.Conv2d(in_channels=1, out_channels=8, kernel_size=5, stride=1, padding=2)
+           
+        # Second Conv. Layer #input size: 12x12 Output Size: 6x6
+        self.conv2 = nn.Conv2d(in_channels=8, out_channels=16, kernel_size=3, stride=1, padding=0)
+
+        # First Fully Connected Layer #Input size: 6x6 Output: 600x1
+        # input_features = 16 * 6 * 6
+        self.fc1 = nn.Linear(in_features=16*6*6, out_features=600)
+        
+        # Second FC Layer
+        self.fc2 = nn.Linear(in_features=600, out_features=120)
+        
+        # Third FC Layer
+        self.fc3 = nn.Linear(in_features=120, out_features=10)
+        
         
     def forward(self, x):
         """
@@ -45,7 +67,27 @@ class CNN(nn.Module):
         forward pass -- this is enough for it to figure out how to do the
         backward pass.
         """
-        raise NotImplementedError
+        x_c = x.view(-1, 1, 28, 28) #the first arg should be batch size, but theres a conflict with the test and dev sets
+        x_c = self.conv1(x_c)
+        x_c = self.activation(x_c)
+        x_c = self.maxpool(x_c)
+
+        x_c = self.conv2(x_c)
+        x_c = self.activation(x_c)
+        x_c = self.maxpool(x_c)
+
+        x_fc = x_c.view(-1, 16*6*6)
+        x_fc = self.fc1(x_fc)
+        x_fc = self.activation(x_fc)
+        x_fc = self.dropout(x_fc)
+
+        x_fc = self.fc2(x_fc)
+        x_fc = self.activation(x_fc)
+
+        x_fc = self.fc3(x_fc)
+        x_fc = self.softmax(x_fc)
+
+        return x_fc
 
 def train_batch(X, y, model, optimizer, criterion, **kwargs):
     """
@@ -65,7 +107,17 @@ def train_batch(X, y, model, optimizer, criterion, **kwargs):
     This function should return the loss (tip: call loss.item()) to get the
     loss as a numerical value that is not part of the computation graph.
     """
-    raise NotImplementedError
+    optimizer.zero_grad()
+
+    #Forward pass
+    y_ = model(X)
+    loss = criterion(y_, y)
+
+    #Backward pass and updating the parameters
+    loss.backward()
+    optimizer.step()
+
+    return loss.item()
 
 def predict(model, X):
     """X (n_examples x n_features)"""
@@ -114,7 +166,7 @@ def plot_feature_maps(model, train_dataset):
 
     k=0
     act = activation['conv1'].squeeze()
-    fig,ax = plt.subplots(2,4,figsize=(12, 8))
+    fig, ax = plt.subplots(2,4,figsize=(12, 8))
     
     for i in range(act.size(0)//3):
         for j in range(act.size(0)//2):
@@ -133,9 +185,9 @@ def main():
     parser.add_argument('-learning_rate', type=float, default=0.01,
                         help="""Learning rate for parameter updates""")
     parser.add_argument('-l2_decay', type=float, default=0)
-    parser.add_argument('-dropout', type=float, default=0.8)
+    parser.add_argument('-dropout', type=float, default=0.3 )
     parser.add_argument('-optimizer',
-                        choices=['sgd', 'adam'], default='sgd')
+                        choices=['sgd', 'adam'], default='adam')
     
     opt = parser.parse_args()
 
@@ -146,7 +198,9 @@ def main():
     train_dataloader = DataLoader(
         dataset, batch_size=opt.batch_size, shuffle=True)
     dev_X, dev_y = dataset.dev_X, dataset.dev_y
+    # print(dev_X.shape, dev_y.shape)   
     test_X, test_y = dataset.test_X, dataset.test_y
+    # print(test_X.shape, test_y.shape)
 
     # initialize the model
     model = CNN(opt.dropout)
