@@ -39,7 +39,6 @@ class Attention(nn.Module): #q3.b
         # src_seq_mask: (batch_size, max_src_len)
         # the "~" is the elementwise NOT operator
         src_seq_mask = ~self.sequence_mask(src_lengths)
-        src_seq_mask = src_seq_mask.unsqueeze(1).repeat(1, query.shape[1], 1)
         #############################################
         # TODO: Implement the forward pass of the attention layer
         # Hints:
@@ -49,27 +48,23 @@ class Attention(nn.Module): #q3.b
         # - Use torch.tanh to do the tanh
         # - Use torch.masked_fill to do the masking of the padding tokens
         #############################################
-        # print(f"Query: {query.shape}\nEnc:{encoder_outputs.shape}\nSrc_lenght:{src_lengths.shape}\nW_q:{self.linear_in}")
 
+        # broadcast mask so as to have (batch_size * max_src_len * hidden_dim)
+        src_seq_mask = src_seq_mask.unsqueeze(1).repeat(1, query.shape[1], 1)
+
+        # compute Q^T . W . H
         z = torch.matmul(query, self.linear_in.weight)
-
         attn_scores = torch.bmm(z, torch.transpose(encoder_outputs, 1, 2))
 
         attn_scores = attn_scores.masked_fill(src_seq_mask, float("-inf"))
-        # for i in range(attn_scores.shape[0]):
-        #     attn_scores[i, :, src_seq_mask[i]] = float("-inf")
 
+        # compute attention probabilities and the context vector
         alignment = torch.softmax(attn_scores, 2)
-        # print(f"probs:{alignment.shape}")
-
         c = torch.bmm(alignment, encoder_outputs)
-
         augm_c = torch.cat([query, c], dim=2)
 
-        # print(f"matmul input shapes: {augm_c.shape} ::::: {torch.transpose(self.linear_out.weight, 0,1).shape}");sys.exit()
-        attn_out = torch.matmul(augm_c, torch.transpose(self.linear_out.weight, 0,1))
-
-        # print(attn_out.shape);sys.exit()
+        # attention layer output
+        attn_out = torch.matmul(augm_c, torch.transpose(self.linear_out.weight, 0, 1))
         attn_out = torch.tanh(attn_out) 
     
         #############################################
@@ -128,10 +123,11 @@ class Encoder(nn.Module):  #q3.a
         embedded = self.embedding(src)
         x = self.dropout(embedded)
 
+        # pack sequences and pass them to them lstm
         x = torch.nn.utils.rnn.pack_padded_sequence(x, lengths, batch_first=True, enforce_sorted=False)
-
         x, final_hidden = self.lstm(x)
 
+        # pad the sequneces and apply dropoout
         enc_output = torch.nn.utils.rnn.pad_packed_sequence(x, batch_first=True)
         enc_output = self.dropout(enc_output[0])
 
@@ -202,14 +198,14 @@ class Decoder(nn.Module): #q3.a
         if tgt.size(1) > 1:
             tgt = tgt[:, :-1]
         
-        #Apply embedding and dropout
+        # Apply embedding and dropout
         embed = self.embedding(tgt)
         embed = self.dropout(embed)
 
-        #Output and dropout
+        # Output and dropout
         out1, dec_state = self.lstm(embed, dec_state)
         
-        #Attention layer (for 3.1b only)
+        # Attention layer (for 3.1b only)
         if self.attn is not None:
             out1 = self.attn(
                 out1,

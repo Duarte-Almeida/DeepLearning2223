@@ -33,11 +33,11 @@ class CNN(nn.Module):
         self.dropout = nn.Dropout(dropout_prob)
         self.softmax = nn.LogSoftmax(dim=1)
 
-        # First Conv. Layer #Input size: 28x28 Output Size: 14x14
+        # First Conv. Layer #Input size: 28x28 Output Size: 28x28
         # Padding of 2 because k=5 and p = (k-1)//2
         self.conv1 = nn.Conv2d(in_channels=1, out_channels=8, kernel_size=5, stride=1, padding=2)
            
-        # Second Conv. Layer #input size: 12x12 Output Size: 6x6
+        # Second Conv. Layer #input size: 14x14 Output Size: 12x12, 6x6 after poooling
         self.conv2 = nn.Conv2d(in_channels=8, out_channels=16, kernel_size=3, stride=1, padding=0)
 
         # First Fully Connected Layer #Input size: 6x6 Output: 600x1
