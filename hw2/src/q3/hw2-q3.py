@@ -13,7 +13,7 @@ import matplotlib.pyplot as plt
 from data import collate_samples, MTDataset, PAD_IDX, SOS_IDX, EOS_IDX
 from models import Encoder, Decoder, Seq2Seq, Attention, reshape_state
 
-device = torch.device("cuda" if torch.cuda.is_available() else "cpu")
+device = torch.device("cpu" if torch.cuda.is_available() else "cpu")
 
 
 def configure_seed(seed):

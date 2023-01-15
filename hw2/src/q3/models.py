@@ -2,6 +2,7 @@ import torch
 import torch.nn as nn
 from torch.nn.utils.rnn import pack_padded_sequence as pack
 from torch.nn.utils.rnn import pad_packed_sequence as unpack
+import sys
 
 
 def reshape_state(state):
@@ -12,7 +13,7 @@ def reshape_state(state):
     return (new_h_state, new_c_state)
 
 
-class Attention(nn.Module):
+class Attention(nn.Module): #q3.b
     def __init__(
         self,
         hidden_size,
@@ -29,7 +30,7 @@ class Attention(nn.Module):
         encoder_outputs,
         src_lengths,
     ):
-        # query: (batch_size, 1, hidden_dim)
+        # query: (batch_size, 1, hidden_dim). According to attention.ipynb should be: (batch_size, tgt_lenght, hidden_dim)
         # encoder_outputs: (batch_size, max_src_len, hidden_dim)
         # src_lengths: (batch_size)
         # we will need to use this mask to assign float("-inf") in the attention scores
@@ -47,13 +48,33 @@ class Attention(nn.Module):
         # - Use torch.tanh to do the tanh
         # - Use torch.masked_fill to do the masking of the padding tokens
         #############################################
-        raise NotImplementedError
+        # print(f"Query: {query.shape}\nEnc:{encoder_outputs.shape}\nSrc_lenght:{src_lengths.shape}\nW_q:{self.linear_in}")
+
+        z = torch.matmul(query, self.linear_in.weight)
+
+        attn_scores = torch.bmm(z, torch.transpose(encoder_outputs, 1, 2))
+        for i in range(attn_scores.shape[0]):
+            attn_scores[i, :, src_seq_mask[i]] = float("-inf")
+
+        alignment = torch.softmax(attn_scores, 2)
+        # print(f"probs:{alignment.shape}")
+
+        c = torch.bmm(alignment, encoder_outputs)
+
+        augm_c = torch.cat([query, c], dim=2)
+
+        # print(f"matmul input shapes: {augm_c.shape} ::::: {torch.transpose(self.linear_out.weight, 0,1).shape}");sys.exit()
+        attn_out = torch.matmul(augm_c, torch.transpose(self.linear_out.weight, 0,1))
+
+        # print(attn_out.shape);sys.exit()
+        attn_out = torch.tanh(attn_out) 
+    
         #############################################
         # END OF YOUR CODE
         #############################################
         # attn_out: (batch_size, 1, hidden_size)
         # TODO: Uncomment the following line when you implement the forward pass
-        # return attn_out
+        return attn_out
 
     def sequence_mask(self, lengths):
         """
@@ -69,7 +90,7 @@ class Attention(nn.Module):
         )
 
 
-class Encoder(nn.Module):
+class Encoder(nn.Module):  #q3.a
     def __init__(
         self,
         src_vocab_size,
@@ -101,6 +122,16 @@ class Encoder(nn.Module):
     ):
         # src: (batch_size, max_src_len)
         # lengths: (batch_size)
+        embedded = self.embedding(src)
+        x = self.dropout(embedded)
+
+        x = torch.nn.utils.rnn.pack_padded_sequence(x, lengths, batch_first=True, enforce_sorted=False)
+
+        x, final_hidden = self.lstm(x)
+
+        enc_output = torch.nn.utils.rnn.pad_packed_sequence(x, batch_first=True)
+        enc_output = self.dropout(enc_output[0])
+
         #############################################
         # TODO: Implement the forward pass of the encoder
         # Hints:
@@ -109,7 +140,6 @@ class Encoder(nn.Module):
         # - Use torch.nn.utils.rnn.pad_packed_sequence to unpack the packed sequences
         #   (after passing them to the LSTM)
         #############################################
-        raise NotImplementedError
         #############################################
         # END OF YOUR CODE
         #############################################
@@ -117,10 +147,10 @@ class Encoder(nn.Module):
         # final_hidden: tuple with 2 tensors
         # each tensor is (num_layers * num_directions, batch_size, hidden_size)
         # TODO: Uncomment the following line when you implement the forward pass
-        # return enc_output, final_hidden
+        return enc_output, final_hidden
 
 
-class Decoder(nn.Module):
+class Decoder(nn.Module): #q3.a
     def __init__(
         self,
         hidden_size,
@@ -166,21 +196,22 @@ class Decoder(nn.Module):
             dec_state = reshape_state(dec_state)
 
         #############################################
-        # TODO: Implement the forward pass of the decoder
-        # Hints:
-        # - the input to the decoder is the previous target token,
-        #   and the output is the next target token
-        # - New token representations should be generated one at a time, given
-        #   the previous token representation and the previous decoder state
-        # - Add this somewhere in the decoder loop when you implement the attention mechanism in 3.2:
-        # if self.attn is not None:
-        #     output = self.attn(
-        #         output,
-        #         encoder_outputs,
-        #         src_lengths,
-        #     )
-        #############################################
-        raise NotImplementedError
+        #TODO: alterar isto um bocado para n ser copia do alex
+        if tgt.size(1) > 1:
+            tgt = tgt[:, :-1]
+        
+        embedded = self.embedding(tgt)
+        embedded = self.dropout(embedded)
+
+        outputs, dec_state = self.lstm(embedded, dec_state)
+        outputs = self.dropout(outputs)
+
+        if self.attn is not None:
+            outputs = self.attn(
+                outputs,
+                encoder_outputs,
+                src_lengths,
+            )
         #############################################
         # END OF YOUR CODE
         #############################################
@@ -188,7 +219,8 @@ class Decoder(nn.Module):
         # dec_state: tuple with 2 tensors
         # each tensor is (num_layers, batch_size, hidden_size)
         # TODO: Uncomment the following line when you implement the forward pass
-        # return outputs, dec_state
+        
+        return outputs, dec_state
 
 
 class Seq2Seq(nn.Module):
