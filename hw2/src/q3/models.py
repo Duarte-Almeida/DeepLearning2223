@@ -39,6 +39,7 @@ class Attention(nn.Module): #q3.b
         # src_seq_mask: (batch_size, max_src_len)
         # the "~" is the elementwise NOT operator
         src_seq_mask = ~self.sequence_mask(src_lengths)
+        src_seq_mask = src_seq_mask.unsqueeze(1).repeat(1, query.shape[1], 1)#;print(src_seq_mask.shape);sys.exit()
         #############################################
         # TODO: Implement the forward pass of the attention layer
         # Hints:
@@ -53,8 +54,10 @@ class Attention(nn.Module): #q3.b
         z = torch.matmul(query, self.linear_in.weight)
 
         attn_scores = torch.bmm(z, torch.transpose(encoder_outputs, 1, 2))
-        for i in range(attn_scores.shape[0]):
-            attn_scores[i, :, src_seq_mask[i]] = float("-inf")
+
+        attn_scores = attn_scores.masked_fill(src_seq_mask, float("-inf"))
+        # for i in range(attn_scores.shape[0]):
+        #     attn_scores[i, :, src_seq_mask[i]] = float("-inf")
 
         alignment = torch.softmax(attn_scores, 2)
         # print(f"probs:{alignment.shape}")
@@ -204,14 +207,15 @@ class Decoder(nn.Module): #q3.a
         embedded = self.dropout(embedded)
 
         outputs, dec_state = self.lstm(embedded, dec_state)
-        outputs = self.dropout(outputs)
-
+        
         if self.attn is not None:
             outputs = self.attn(
                 outputs,
                 encoder_outputs,
                 src_lengths,
             )
+
+        outputs = self.dropout(outputs)
         #############################################
         # END OF YOUR CODE
         #############################################
