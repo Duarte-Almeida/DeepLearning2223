@@ -39,7 +39,7 @@ class Attention(nn.Module): #q3.b
         # src_seq_mask: (batch_size, max_src_len)
         # the "~" is the elementwise NOT operator
         src_seq_mask = ~self.sequence_mask(src_lengths)
-        src_seq_mask = src_seq_mask.unsqueeze(1).repeat(1, query.shape[1], 1)#;print(src_seq_mask.shape);sys.exit()
+        src_seq_mask = src_seq_mask.unsqueeze(1).repeat(1, query.shape[1], 1)
         #############################################
         # TODO: Implement the forward pass of the attention layer
         # Hints:
@@ -199,23 +199,25 @@ class Decoder(nn.Module): #q3.a
             dec_state = reshape_state(dec_state)
 
         #############################################
-        #TODO: alterar isto um bocado para n ser copia do alex
         if tgt.size(1) > 1:
             tgt = tgt[:, :-1]
         
-        embedded = self.embedding(tgt)
-        embedded = self.dropout(embedded)
+        #Apply embedding and dropout
+        embed = self.embedding(tgt)
+        embed = self.dropout(embed)
 
-        outputs, dec_state = self.lstm(embedded, dec_state)
+        #Output and dropout
+        out1, dec_state = self.lstm(embed, dec_state)
         
+        #Attention layer (for 3.1b only)
         if self.attn is not None:
-            outputs = self.attn(
-                outputs,
+            out1 = self.attn(
+                out1,
                 encoder_outputs,
                 src_lengths,
             )
 
-        outputs = self.dropout(outputs)
+        outputs = self.dropout(out1)
         #############################################
         # END OF YOUR CODE
         #############################################
